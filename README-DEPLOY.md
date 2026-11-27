@@ -4,7 +4,7 @@ Static site: upload this whole folder to any web host (WordPress.com Business pl
 
 ## Booking (WeTravel)
 Every "Book" button uses your WeTravel embed (uid 202227, trip uuid 68342383) with `embed_checkout.js`, so on the live domain it opens the floating WeTravel checkout window, same as sadhama.com. The retreats page also loads your WeTravel reviews widget.
-- CHECK on the live site that the 2027 dates show in the WeTravel checkout for trip 68342383 (or swap in a new 2027 trip uuid in build_site.py: WT['vip']).
+- Trips: Vipassana UK 68342383 (2027 dates), Thailand 7915926147 (25–31 Jan 2027), Practice of Peace 3370709561 — uuids in tools/build_site.py (WT).
 
 ## After going live
 1. Google Search Console: add the domain, submit /sitemap.xml.

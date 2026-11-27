@@ -8,16 +8,17 @@ ROOT = Path(__file__).parent.parent; OUT = ROOT / (sys.argv[1] if len(sys.argv) 
 DOMAIN = 'https://vipassanaretreat.com'
 sys.path.insert(0, str(CONTENT)); from ananda_qa import QA
 
-WT = dict(env='https://www.wetravel.com', uid='202227', vip='68342383')
+WT = dict(env='https://www.wetravel.com', uid='202227', vip='68342383', thai='7915926147', peace='3370709561')
 CHECKOUT = f"https://www.wetravel.com/checkout_embed?uuid={WT['vip']}"
 TRIP = 'https://sadhama.wetravel.com/trips/insight-vipassana-silent-meditation-retreats-2026-sadhama-rewild-retreats-68342383'
 PROFILE = 'https://www.wetravel.com/users/sadhama'
 DATES = [('2027-05-31', '2027-06-06', '31 May – 6 June'), ('2027-07-26', '2027-08-01', '26 July – 1 August'), ('2027-08-30', '2027-09-05', '30 August – 5 September')]
 NAV = [('retreats.html', 'Retreats & booking'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('teacher.html', 'Teacher')]
 
-def book_btn(label='Book your place', cls='btn book', extra=''):
+def book_btn(label='Book your place', cls='btn book', extra='', uuid=None):
+    u = uuid or WT['vip']
     return (f'<a class="{cls} wtrvl-checkout_button" data-env="{WT["env"]}" data-version="v0.4" data-uid="{WT["uid"]}" '
-            f'data-uuid="{WT["vip"]}" href="{CHECKOUT}" rel="noopener"{extra}>{label}</a>')
+            f'data-uuid="{u}" href="https://www.wetravel.com/checkout_embed?uuid={u}" rel="noopener"{extra}>{label}</a>')
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--oak)"/><path d="M5 21c4-3 7-4 11-4s7 1 11 4v3H5z" fill="var(--sky)"/><path d="M10 21l6-8 6 8z" fill="#fff"/><circle cx="23" cy="10" r="2.6" fill="var(--sun)"/></svg>'
 
@@ -161,13 +162,14 @@ def event_ld(s, e, label):
             "organizer": ORG, "performer": AUTHOR}
 
 QUOTES = [
+ ('This was an amazing retreat - my best yet and I’ve been on a lot all over the world. The teachings were amazing, the food exemplary. It was a truly nurturing experience.', 'Anita M.'),
  ('This retreat was truly exceptional, possibly the best I’ve ever attended… Their deep knowledge of yoga and wellness was evident in every session, making each practice enriching and accessible for all levels.', 'Ian M.'),
  ('Under Dmitry’s kind, humorous and humble guidance, one can find their way back to their true selves… The food was another level!', 'Rachel B.'),
  ('Dmitry is a brilliant communicator, able to make everyone laugh and to push on in cold weather, and to pay close attention and offer incisive, precise and compassionate guidance when required.', 'Daniel A.'),
  ('The silence allowed for a deep immersion into the practice, fostering an environment of profound inner peace and clarity.', 'Dionne H.'),
 ]
 def quotes_html():
-    return '<div class="quotes">' + ''.join(f'<blockquote class="quote"><p>“{html.escape(q)}”</p><cite>Retreat guest, Insight Vipassana at Hardwick</cite></blockquote>' for q, n in QUOTES) + '</div>'
+    return '<div class="quotes">' + ''.join(f'<blockquote class="quote"><p>“{html.escape(q)}”</p><cite>{n}, Sadhama retreat guest</cite></blockquote>' for q, n in QUOTES) + '</div>'
 
 TIMETABLE = [('4:30', 'Wake up'), ('5:00', 'Sitting meditation'), ('5:45', 'Meditative yoga'), ('6:45', 'Sitting meditation'), ('7:30', 'Breakfast, shower, mindful work'),
              ('9:00', 'Meditation instructions'), ('10:00', 'Walking meditation'), ('10:45', 'Sitting meditation'), ('11:30', 'Lunch and rest'),
@@ -259,12 +261,19 @@ def build_retreats():
 <section class="band"><div class="wrap"><h2>From past retreats</h2>{quotes_html()}
 <div style="margin-top:24px"><script src="https://cdn.wetravel.com/widgets/embed_reviews.js" id="wetravel_review_widget" data-env="https://www.wetravel.com" data-version="v0.3" data-userslug="202227" data-uid="202227" data-showstars="true" data-showcount="true" data-name="WeTravel Review Widget"></script></div></div></section>
 
-<section class="band mist"><div class="wrap grid two" style="align-items:start">
-<div class="date-card"><span class="yr">Thailand</span><span class="when" style="white-space:normal">Insight Vipassana, Koh Phangan</span><p class="muted" style="margin:0">25–31 January 2027 at the Indriya Retreat Centre, Koh Phangan, Thailand, with Dmitry.</p><a class="btn ghost" href="https://sadhama.com/contact/" rel="noopener">Ask about Thailand</a></div>
-<div class="date-card"><span class="yr">Gentle silence</span><span class="when" style="white-space:normal">Practice of Peace</span><p class="muted" style="margin:0">A 4-day gentle silent retreat at Hardwick: soft meditation, yoga, forest bathing and plenty of time for yourself. A good first step towards a 7 or 10-day vipassana. 2027 dates on WeTravel.</p><a class="btn ghost" href="{PROFILE}" rel="noopener">See all Sadhama retreats</a></div></div></section>
+<section class="band mist"><div class="wrap"><h2>More silent retreats with Dmitry</h2><div class="grid two" style="align-items:start">
+<div class="date-card"><span class="yr">Thailand · 7 days</span><span class="when">25–31 January 2027</span><p style="margin:0"><b>Insight Vipassana Silent Retreat, Koh Phangan.</b> The same Mahasi noting practice, at the Indriya Retreat Centre by the sea on Koh Phangan, Thailand. From $350 (deposit $100).</p>{book_btn("Book Thailand", uuid=WT["thai"])}</div>
+<div class="date-card"><span class="yr">Hardwick · 4 days of gentle silence</span><span class="when">27–30 August 2027</span><p style="margin:0"><b>Practice of Peace.</b> Gentle meditation, yoga, forest bathing, sauna and plenty of time for yourself over the August bank holiday. A soft first step towards a 7 or 10-day vipassana.</p>{book_btn("Book Practice of Peace", uuid=WT["peace"])}</div>
+</div></div></section>
 
 <section class="band"><div class="wrap" style="max-width:860px"><h2>Retreat FAQ</h2>{faq_html(FAQ)}</div></section>'''
-    ld = [FAQ_LD] + [event_ld(*d) for d in DATES]
+    thai = event_ld('2027-01-25', '2027-01-31', 'Thailand January')
+    thai.update(name='7-Day Insight Vipassana Silent Meditation Retreat, Koh Phangan, Thailand (January 2027)', location={"@type": "Place", "name": "Indriya Retreat Centre", "address": {"@type": "PostalAddress", "streetAddress": "66/9 Moo 5", "addressLocality": "Koh Phangan", "addressRegion": "Surat Thani", "postalCode": "84280", "addressCountry": "TH"}},
+                offers={"@type": "Offer", "price": "350", "priceCurrency": "USD", "url": "https://www.wetravel.com/trips/thailand-vipassana-silent-meditation-retreat-in-koh-phangan-sadhama-rewild-retreats-7915926147", "availability": "https://schema.org/InStock"})
+    peace = event_ld('2027-08-27', '2027-08-30', 'August')
+    peace.update(name='Practice of Peace: 4-Day Gentle Silent Retreat (August 2027)', description='Four days of gentle silence at Hardwick Estate: simple meditation, yoga, forest bathing, riverside sauna and Ayurvedic food.')
+    peace.pop('offers', None)
+    ld = [FAQ_LD] + [event_ld(*d) for d in DATES] + [thai, peace]
     page('retreats.html', '7-Day Silent Vipassana Retreat UK 2027: Dates & Booking', 'Book a 7-day silent Insight Vipassana retreat at Hardwick Estate, Oxfordshire, in 2027: 31 May, 26 July or 30 August. £149 organisational fee, teaching for dāna.', body, 'retreats.html', 'marquee-dawn', ld)
 
 # ---------- teacher ----------

@@ -298,14 +298,16 @@ And it's easy to keep the precept of not lying when you're not talking at all.
 You'll be surprised how nourishing it is when you don't have to speak to anyone. You can always talk to the teacher in your interview.''',
 refs=[['Your first silent retreat','/articles/first-silent-retreat-what-to-expect.html']]),
 
-dict(id='retreat-dates', q='When are the next retreats?', k='dates 2027 when next retreat schedule book booking',
+dict(id='retreat-dates', q='When are the next retreats?', k='dates 2027 when next retreat schedule book booking practice peace',
 a='''Our 7-day Insight Vipassana retreats at Hardwick Estate, on the Thames in Oxfordshire, in 2027:
 
 31 May – 6 June
 26 July – 1 August
 30 August – 5 September
 
-The organisational fee is £149 (deposit £75), covering food and camping. The teaching is offered for dāna. You can book on the retreats page.''',
+The organisational fee is £149 (deposit £75), covering food and camping. The teaching is offered for dāna.
+
+Also: Insight Vipassana in Thailand, 25–31 January 2027, and Practice of Peace, four days of gentle silence at Hardwick, 27–30 August 2027. All bookable on the retreats page.''',
 refs=[['See dates and book','/retreats/']]),
 
 dict(id='where', q='Where are the retreats and how do I get there?', k='location venue where hardwick oxfordshire travel train london directions',
@@ -333,7 +335,7 @@ Karen Buckland, my wife, runs Sadhama with me and cooks the food. I'm not a guru
 refs=[['About the teacher','/teacher/']]),
 
 dict(id='thailand', q='Do you run retreats in Thailand?', k='thailand koh phangan indriya abroad january',
-a='''Yes. I teach Insight Vipassana at the Indriya Retreat Centre on Koh Phangan, Thailand. The next one is 25–31 January 2027. Get in touch through the retreats page for details.''',
+a='''Yes. I teach Insight Vipassana at the Indriya Retreat Centre on Koh Phangan, Thailand. The next one is 25–31 January 2027: seven days, the same noting practice, by the sea. From $350, with a $100 deposit. You can book it on the retreats page.''',
 refs=[['Retreats','/retreats/']]),
 
 dict(id='how-many-retreats', q='How many retreats until I get results?', k='breakthrough progress results how long until',
