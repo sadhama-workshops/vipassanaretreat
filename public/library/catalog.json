@@ -1,0 +1,82 @@
+[
+ {
+  "slug": "samyutta-nikaya",
+  "code": "sn",
+  "title": "Saṁyutta Nikāya",
+  "en": "The Linked Discourses",
+  "blurb": "Short discourses grouped by theme — including the Satipaṭṭhāna and Ānāpāna saṁyuttas that the vipassana method comes from.",
+  "chapters": 56,
+  "suttas": 1819,
+  "epub": true
+ },
+ {
+  "slug": "anguttara-nikaya",
+  "code": "an",
+  "title": "Aṅguttara Nikāya",
+  "en": "The Numbered Discourses",
+  "blurb": "Teachings arranged by number, from the Ones to the Elevens: practical, direct guidance for daily life and practice.",
+  "chapters": 11,
+  "suttas": 1408,
+  "epub": true
+ },
+ {
+  "slug": "dhammapada",
+  "code": "dhp",
+  "title": "Dhammapada",
+  "en": "Sayings of the Dhamma",
+  "blurb": "423 verses on mind, heart and the path. The most-loved book of the Pāḷi canon.",
+  "chapters": 1,
+  "suttas": 26,
+  "epub": true
+ },
+ {
+  "slug": "sutta-nipata",
+  "code": "snp",
+  "title": "Sutta Nipāta",
+  "en": "The Anthology of Discourses",
+  "blurb": "Some of the oldest teachings, including the Mettā Sutta and the Maṅgala Sutta (Blessings).",
+  "chapters": 5,
+  "suttas": 73,
+  "epub": true
+ },
+ {
+  "slug": "udana",
+  "code": "ud",
+  "title": "Udāna",
+  "en": "Heartfelt Sayings",
+  "blurb": "Short stories that end in an inspired utterance of the Buddha.",
+  "chapters": 8,
+  "suttas": 80,
+  "epub": true
+ },
+ {
+  "slug": "itivuttaka",
+  "code": "iti",
+  "title": "Itivuttaka",
+  "en": "So It Was Said",
+  "blurb": "112 short teachings in prose and verse, remembered by the lay disciple Khujjuttarā.",
+  "chapters": 11,
+  "suttas": 112,
+  "epub": true
+ },
+ {
+  "slug": "theragatha",
+  "code": "thag",
+  "title": "Theragāthā",
+  "en": "Verses of the Senior Monks",
+  "blurb": "Poems of awakening by the early monks — honest, vivid, often set in forest and mountain.",
+  "chapters": 1,
+  "suttas": 264,
+  "epub": true
+ },
+ {
+  "slug": "therigatha",
+  "code": "thig",
+  "title": "Therīgāthā",
+  "en": "Verses of the Senior Nuns",
+  "blurb": "The world’s oldest collection of women’s spiritual poetry.",
+  "chapters": 1,
+  "suttas": 73,
+  "epub": true
+ }
+]

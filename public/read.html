@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Read the Suttas Online | Vipassana Retreat UK</title>
+<meta name="description" content="Read and listen to the Buddha&#x27;s discourses online in Bhikkhu Sujato&#x27;s public-domain translation.">
+<link rel="canonical" href="https://vipassanaretreat.com/read.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vipassana Retreat UK">
+<meta property="og:title" content="Read the Suttas Online | Vipassana Retreat UK"><meta property="og:description" content="Read and listen to the Buddha&#x27;s discourses online in Bhikkhu Sujato&#x27;s public-domain translation.">
+<meta property="og:url" content="https://vipassanaretreat.com/read.html"><meta property="og:image" content="https://vipassanaretreat.com/img/lily-pond-mist.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#1f3a2e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><style>.reader{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;align-items:start}
+.toc{position:sticky;top:76px;max-height:calc(100vh - 90px);overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.toc select{width:100%;min-height:44px;font:15px var(--sans);border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 10px;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;font-size:14px}.toc li a{display:block;padding:7px 8px;border-radius:8px;text-decoration:none;color:var(--ink)}.toc li a:hover,.toc li a.on{background:var(--mist);color:var(--oak)}
+.tools{position:sticky;top:64px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tools button,.tools select{min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:600 14px var(--sans);padding:0 14px;cursor:pointer}
+.tools .play{background:var(--sun);color:#fff;border-color:var(--sun)}.tools select{font-weight:400;max-width:200px}
+.text{font-family:var(--serif);font-size:var(--fs,20px);line-height:1.65;max-width:70ch}.text header ul{list-style:none;padding:0;margin:2em 0 0;color:var(--soft);font:14px var(--sans)}.text header li{display:inline}.text header li+li::before{content:" · "}
+.text h1{font-size:1.5em;margin:.3em 0 .6em}.text h2{font-size:1.25em}.text .verse-line{display:block}.text blockquote{margin:1em 0 1em 1em}.text section{scroll-margin-top:130px}
+.text .reading{background:color-mix(in srgb,var(--sun) 18%,transparent);border-radius:6px;box-shadow:0 0 0 6px color-mix(in srgb,var(--sun) 18%,transparent)}
+.text p,.text li,.text h1,.text h2{cursor:default}.listening .text p,.listening .text h1{cursor:pointer}
+.status{font:14px var(--sans);color:var(--soft)}.dl{font:14px var(--sans)}
+@media(max-width:900px){.reader{grid-template-columns:minmax(0,1fr)}.toc{position:static;max-height:300px}}</style>
+</head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--oak)"/><path d="M5 21c4-3 7-4 11-4s7 1 11 4v3H5z" fill="var(--sky)"/><path d="M10 21l6-8 6 8z" fill="#fff"/><circle cx="23" cy="10" r="2.6" fill="var(--sun)"/></svg><span>Vipassana Retreat</span></a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Main"><a href="retreats.html">Retreats & booking</a><a href="articles.html">Articles</a><a href="ask-ananda.html">Ask Ananda</a><a href="library.html" aria-current=page>Dhamma library</a><a href="teacher.html">Teacher</a></nav></div></header>
+<main id="main"><section class="band" style="padding-top:28px"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> › <a href="library.html">Library</a> › <span id="crumb">Reader</span></nav>
+<h1 id="bookTitle">Dhamma library</h1><p class="muted" id="bookSub"></p>
+<div class="reader"><aside class="toc" aria-label="Contents"><label class="small muted" for="chapter">Chapter</label><select id="chapter"></select><ol id="suttas"></ol></aside>
+<div><div class="tools" role="toolbar" aria-label="Reading tools"><button class="play" id="play" type="button">▶ Listen</button><button id="stop" type="button">■ Stop</button>
+<select id="rate" aria-label="Reading speed"><option value=".85">Slow</option><option value="1" selected>Normal</option><option value="1.15">Faster</option></select>
+<select id="voice" aria-label="Voice"></select><button id="smaller" type="button" aria-label="Smaller text">A−</button><button id="bigger" type="button" aria-label="Larger text">A+</button>
+<span class="dl" id="dl"></span><span class="status" id="status"></span></div>
+<article class="text" id="text"><p class="muted">Loading…</p></article>
+<p class="muted small" style="margin-top:32px">Translated by Bhikkhu Sujato (SuttaCentral), public domain. <span id="tts-note"></span></p></div></div></div></section></main>
+<footer><div class="wrap"><div class="cols">
+<div><h4>Vipassana Retreat</h4><p>Silent Insight Vipassana retreats in nature, on the River Thames at Hardwick Estate, Oxfordshire. Run by <a href="https://sadhama.com" rel="noopener">Sadhama</a>.</p></div>
+<div><h4>Retreats</h4><ul><li><a href="retreats.html">2027 dates &amp; booking</a></li><li><a href="articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat?</a></li><li><a href="articles/silent-retreat-near-london.html">Silent retreat near London</a></li></ul></div>
+<div><h4>Learn</h4><ul><li><a href="ask-ananda.html">Ask Ananda</a></li><li><a href="library.html">Dhamma library</a></li><li><a href="articles.html">All articles</a></li></ul></div>
+<div><h4>Contact</h4><ul><li>info@sadhama.com</li><li>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA</li><li><a href="https://www.instagram.com/sadhamayoga/" rel="noopener">Instagram</a></li></ul></div>
+</div><p class="small" style="margin-top:28px;opacity:.75">Sutta translations by Bhikkhu Sujato, SuttaCentral, dedicated to the public domain (CC0). Photographs © Sadhama.</p></div></footer>
+<a class="btn book float-book wtrvl-checkout_button" data-env="https://www.wetravel.com" data-version="v0.4" data-uid="202227" data-uuid="68342383" href="https://www.wetravel.com/checkout_embed?uuid=68342383" rel="noopener">Book a retreat</a>
+<script src="assets/site.js"></script><script src="assets/reader.js"></script>
+<script src="https://cdn.wetravel.com/widgets/embed_checkout.js"></script>
+</body></html>
