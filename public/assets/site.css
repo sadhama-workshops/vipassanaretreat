@@ -185,3 +185,16 @@ pre,.scroll{overflow-x:auto}
 .why-c blockquote{margin:auto 0 0;padding:12px 0 0;border-top:1px solid light-dark(#ece6da,#2b3d34);font-style:italic}
 .why-c blockquote p{margin:0 0 6px}
 .why-c cite{font-style:normal;font-size:.85rem;opacity:.75}
+/* review themes */
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.th{display:flex;flex-direction:column;gap:4px;padding:18px 18px 16px;border-radius:14px;background:light-dark(#fff,#16261f);border:1px solid light-dark(#e3ddd0,#2b3d34);color:light-dark(#1f2a24,#e8eee9)}
+.th b{font-family:Newsreader,Georgia,serif;font-size:2.2rem;line-height:1;color:#e8743b}
+.th-t{font-weight:600;font-size:1.05rem}
+.th-l{font-size:.9rem;opacity:.8}
+.th-q{font-family:Newsreader,Georgia,serif;font-style:italic;margin-top:6px}
+.oak .th{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:inherit}
+.oak .small.muted{opacity:.75}
+blockquote.pull{margin:18px 0;padding:4px 0 4px 18px;border-left:3px solid #e8743b;font-family:Newsreader,Georgia,serif;font-size:1.15rem}
+blockquote.pull p{margin:0 0 6px}blockquote.pull cite{font-family:"Instrument Sans",sans-serif;font-size:.85rem;font-style:normal;opacity:.75}
+.band.oak .quote{color:var(--ink)}.band.oak a.btn.light{color:#18302a}
+.band.oak .muted{color:inherit;opacity:.72}

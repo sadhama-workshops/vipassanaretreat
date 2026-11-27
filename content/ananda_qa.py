@@ -275,9 +275,9 @@ When you notice the mind wants to go back to the old familiar technique, note it
 refs=[]),
 
 dict(id='beginner-retreat', q='Can a beginner come on a silent retreat?', k='beginner first time never meditated can I come suitable',
-a='''Yes. Every group has first-timers. They often do very well because they come without expectations.
+a='''Yes, and in some ways it is even better. Every group has first-timers, and they often do very well. Sometimes the beginner's clean slate has its benefits: when you don't know other techniques, you just do what you're told, and it's easier to go. Nothing to unlearn, nothing to mix.
 
-We teach everything from zero, step by step, adding one object each day. Sittings are 45 minutes, alternating with walking, and there's yoga every morning. If you can sit for about half an hour in some position and follow a schedule for a week, you can do it.
+We teach everything from zero, step by step, adding one object each day, the traditional way. You have interviews with the teacher to ask questions and clear up anything that isn't working. Sittings are 45 minutes, alternating with walking, and there's yoga every morning. If you can sit for about half an hour in some position and follow a schedule for a week, you can do it.
 
 If you have a mental health condition, please tell us when you book so we can talk about it first.''',
 refs=[['Can a beginner do a vipassana retreat?','/articles/vipassana-for-beginners.html']]),

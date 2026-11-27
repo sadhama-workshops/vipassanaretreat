@@ -200,7 +200,7 @@ WHY = [
  ("I need to put the phone down", "Five days with your phone handed in, and nothing to scroll.", "The peace of being without a phone was amazing and gave me a proper reset.", "Elise S."),
  ("Life has piled up", "Space to step back and see your life from a different angle.", "A retreat can give you the time you really need to disconnect from everyday life and see everything from a different perspective.", "Dawid K."),
  ("I've lost touch with myself", "Silence, the river and the old oaks do much of the work.", "Being surrounded by nature was wonderful for nourishing the soul and reconnecting with myself.", "Guest, BookRetreats"),
- ("I've never meditated", "Every group has first-timers, and the teacher meets you each day.", "Even as a beginner in meditation, the guidance, kindness, and support I received throughout the retreat helped me feel grounded and never lost.", "Estela S."),
+ ("I've never meditated", "Even better: a clean slate. You learn step by step, with the teacher beside you every day.", "Even as a beginner in meditation, the guidance, kindness, and support I received throughout the retreat helped me feel grounded and never lost.", "Estela S."),
  ("I want something that lasts", "A simple method you can keep using at home.", "I now use the tools every day, and I feel the change immediately.", "Guest, BookRetreats"),
 ]
 def why_html():
@@ -213,12 +213,19 @@ WHY_SECTION = '''<section class="band"><div class="wrap"><h2>Why people come to 
 def build_home(arts):
     body = f'''<section class="hero">{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], eager=True)}<div class="wrap">
 <h1>Silent vipassana retreats in nature, an hour from London</h1>
-<p>Seven days to rest a busy mind, put the phone away and come home to yourself. Noble silence, insight meditation and Dhamma in a meadow on the River Thames, with the teaching offered for donation.</p>
+<p>Seven days to rest a busy mind, put the phone away and discover the peace of a quiet, clear mind. Noble silence, insight meditation and Dhamma in a meadow on the River Thames, with the teaching offered for donation.</p>
 <div class="ctas">{book_btn()}<a class="btn light" href="/retreats/">See 2027 dates</a></div></div></section>
 
 <section class="band"><div class="wrap"><h2>2027 retreat dates</h2><p class="lede" style="margin-bottom:24px">Three 7-day Insight Vipassana retreats at Hardwick Estate, South Oxfordshire. Each has five full days of silence, and every group includes first-timers.</p>{dates_html()}</div></section>
 
 {WHY_SECTION.replace("{why}", why_html())}
+<section class="band mist"><div class="wrap split"><div>
+<h2>Never meditated? That can be an advantage</h2>
+<p class="lede">Every group has first-timers, and they often do very well. With a clean slate there is nothing to unlearn and no other techniques to mix in. You simply do what you are shown.</p>
+<blockquote class="pull"><p>“Sometimes even the beginners’ clean slate has its benefits. When you don’t know other techniques, you just do what you’re told, and it’s easier to go.”</p><cite>Dmitry, from a retreat talk</cite></blockquote>
+<ul class="ticks"><li>You learn the authentic Mahasi Sayadaw method from zero, adding one step each day</li><li>An experienced teacher guides every sitting and gives a Dhamma talk each evening</li><li>Personal interviews with the teacher, to ask questions and clear up anything unclear</li><li>This is how vipassana has always been passed on in the monasteries of Burma and Thailand</li></ul>
+<p style="margin-top:18px"><a href="/articles/vipassana-for-beginners.html">Vipassana for beginners →</a></p></div>
+{img("fb-interview", ALT["fb-interview"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
 
 <section class="band mist"><div class="wrap split"><div>
 <h2>Rest for a mind that never switches off</h2>
@@ -229,7 +236,7 @@ def build_home(arts):
 
 <section class="band oak"><div class="wrap"><h2>From people who have sat with us</h2>
 <div class="stats" style="margin-bottom:28px"><div><b>4.9</b><span>average from 167 WeTravel reviews</span></div><div><b>35+</b><span>retreats run by Sadhama</span></div><div><b>1,700+</b><span>participants</span></div></div>
-{quotes_html()}<p style="margin-top:24px"><a class="btn light" href="/testimonials/">Read all guest reviews</a></p></div></section>
+<h3 style="margin:8px 0 14px">What guests mention most</h3>{themes_html(4)}<div style="margin-top:28px">{quotes_html()}</div><p style="margin-top:24px"><a class="btn light" href="/testimonials/">Read all guest reviews</a></p></div></section>
 
 <section class="band"><div class="wrap split">{img("fb-teacher-smile", ALT["fb-teacher-smile"], sizes="(max-width:820px) 100vw, 600px")}<div>
 <h2>Ask Ananda, your Dhamma assistant</h2>
@@ -262,6 +269,25 @@ def review_card(r, clamp=True):
     return (f'<article class="rv{" clamp" if clamp else ""}" data-cat="{r["cat"]}" data-src="{r["src"]}"><header>{stars(r["stars"])}<span class="rv-src">{r["src"]}</span></header>'
             f'<div class="rv-text">{paras}</div><footer><b>{html.escape(r["name"])}</b><span>{html.escape(r["retreat"])}{(" · " + html.escape(r["date"])) if r["date"] else ""}</span></footer></article>')
 
+THEMES = [
+ ("Nourished", "food|karen", "the food, cooked with love by Karen", "Gorgeous food, tranquillity of mind"),
+ ("At one with nature", "river|nature|oak|dawn|meadow|forest", "the river, the meadow and the old oaks", "Totally at one with nature"),
+ ("Peace and calm", "peace|calm|stillness|tranquil", "a deep, quiet peace", "I spent the whole week in tranquil peace"),
+ ("Life-changing", "life[- ]chang|transform|profound", "a change that stayed with them", "Amazing, life changing"),
+ ("Rested and reset", r"burn ?out|exhaust|rest(ed|ful)?\b|recharg|reset", "rest for a tired body and mind", "Both restful and recharging"),
+ ("Safe and held", "safe|held|judg", "a kind space, free of judgement", "A warm, safe and thoughtful environment"),
+]
+def themes_html(limit=None):
+    n = len(REVIEWS)
+    rows = []
+    for t, pat, line, q in THEMES:
+        c = sum(1 for r in REVIEWS if re.search(pat, r['text'], re.I))
+        rows.append((c, t, line, q))
+    rows.sort(reverse=True)
+    rows = rows[:limit] if limit else rows
+    tiles = ''.join(f'<div class="th"><b>{c}</b><span class="th-t">{html.escape(t)}</span><span class="th-l">reviews mention {html.escape(line)}</span><span class="th-q">“{html.escape(q)}”</span></div>' for c, t, line, q in rows)
+    return f'<div class="themes">{tiles}</div><p class="small muted" style="margin-top:10px">From {n} guest reviews on WeTravel, BookRetreats and Google.</p>'
+
 BR_SCORES = [('Teachers', 4.91), ('Location', 4.91), ('Value', 4.89), ('Accuracy', 4.89), ('Food', 4.88), ('Communication', 4.85), ('Accommodation', 4.71)]
 def scores_html():
     return '<div class="scores">' + ''.join(f'<div class="score"><span>{k}</span><span class="bar"><i style="width:{(v/5)*100:.1f}%"></i></span><b>{v:.2f}</b></div>' for k, v in BR_SCORES) + '</div>'
@@ -276,10 +302,10 @@ def build_retreats():
 <nav class="secnav scroll" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#included">What's included</a><a href="#program">Program</a><a href="#food">Food</a><a href="#stay">Accommodation</a><a href="#teachers">Teachers</a><a href="#reviews">Reviews</a><a href="#location">Location</a><a href="#faq">FAQ</a></div></nav>
 <div class="wrap listing"><div class="main">
 
-<section id="overview" class="sec"><h2>A week to rest, see clearly and come home to yourself</h2>
+<section id="overview" class="sec"><h2>A week to rest, see clearly and find real peace of mind</h2>
 <p class="lede">An ancient method of meditation, pristinely simple in principle and profoundly transformative in application. Live in silence by the Thames, switch off your phone, eat nourishing plant-based food, and learn to see your mind clearly.</p>
 <div class="hl"><div><b>Five days of silence</b><span>The rare peace of total quiet, with personal teacher interviews.</span></div><div><b>Authentic method</b><span>Mahasi Sayadaw noting, as practised in the monasteries of Burma and Thailand.</span></div><div><b>Yoga every morning</b><span>Prepares the body so you can sit with less pain.</span></div><div><b>Wild nature</b><span>Meadow, ancient oaks, river swimming and a riverside sauna.</span></div><div><b>Ayurvedic food</b><span>Organic, plant-based, much of it grown on the estate.</span></div><div><b>Offered for dāna</b><span>£149 covers food and camping; give what you wish for the teaching.</span></div></div>
-<h3>Who this retreat is for</h3><ul class="ticks"><li><b>If your mind never switches off:</b> burnout, stress, worry, or a full head you can't put down.</li><li><b>If you're at a turning point:</b> a big birthday, a loss, a decision, a new chapter.</li><li><b>If you need a break from screens:</b> five days with your phone handed in.</li><li><b>All levels:</b> complete beginners and experienced meditators. Every group has first-timers.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
+<h3>Who this retreat is for</h3><ul class="ticks"><li><b>If your mind never switches off:</b> burnout, stress, worry, or a full head you can't put down.</li><li><b>If you're at a turning point:</b> a big birthday, a loss, a decision, a new chapter.</li><li><b>If you need a break from screens:</b> five days with your phone handed in.</li><li><b>Complete beginners:</b> a clean slate is an advantage. You learn the authentic method step by step, with daily guidance and personal interviews. Experienced meditators are welcome too.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
 <h3>What you may take home</h3><ul class="ticks"><li>A calmer, clearer mind and better concentration</li><li>Less reactivity to stress, worry and difficult emotions</li><li>The skill of stepping back from thoughts instead of drowning in them</li><li>A daily practice you can keep at home</li><li>A deep rest for the nervous system, and a full digital detox</li></ul></section>
 
 <section id="included" class="sec"><h2>What's included</h2><div class="grid two" style="align-items:start"><ul class="ticks">
@@ -341,6 +367,7 @@ def build_testimonials():
     cats = [('all', 'All'), ('vipassana', 'Insight Vipassana'), ('peace', 'Practice of Peace'), ('meditation', 'Other retreats')]
     chips = ''.join(f'<button type="button" class="chip{" on" if k == "all" else ""}" data-f="{k}">{t}</button>' for k, t in cats)
     body = f'''<section class="page-hero">{img("fb-group-marquee", ALT["fb-group-marquee"], eager=True)}<div class="wrap"><h1>Reviews from our silent retreats</h1><p>{len(REVIEWS)} guests in their own words, about vipassana and meditation with Dmitry and Karen.</p>{RATINGS}</div></section>
+<section class="band mist"><div class="wrap"><h2>What guests mention most</h2><p class="lede" style="margin-bottom:22px">A quick summary, if you would rather not read every review.</p>{themes_html()}</div></section>
 <section class="band"><div class="wrap"><div class="rv-top"><div class="big"><b>4.85</b><span>{stars(5)}</span><span class="muted small">BookRetreats, Insight Vipassana UK</span></div>{scores_html()}</div>
 <div class="chips" role="group" aria-label="Filter reviews">{chips}</div><div class="rv-grid" id="rvs">{"".join(review_card(r, False) for r in REVIEWS)}</div>
 <p class="muted small" style="margin-top:24px">All Vipassana, Practice of Peace and meditation-related reviews rated 4 or 5 stars on WeTravel, BookRetreats and Google, shown with first name and initial.</p>
