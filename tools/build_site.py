@@ -51,14 +51,15 @@ def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=No
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#1f3a2e">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="{up}assets/favicon.png"><link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
 <link rel="stylesheet" href="{up}assets/site.css">{extra_head}{ld}
 </head><body>
-<header class="top"><div class="wrap"><a class="brand" href="{up}index.html">{LOGO}<span>Vipassana Retreat</span></a>
+<header class="top"><div class="wrap"><a class="brand" href="{up}index.html"><img src="{up}assets/sadhama-logo-white.png" width="91" height="56" alt="Sadhama"><span>Vipassana Retreat</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="Main">{nav}</nav></div></header>
 <main id="main">{fix_links(body, depth)}</main>
 <footer><div class="wrap"><div class="cols">
-<div><h4>Vipassana Retreat</h4><p>Silent Insight Vipassana retreats in nature, on the River Thames at Hardwick Estate, Oxfordshire. Run by <a href="https://sadhama.com" rel="noopener">Sadhama</a>.</p></div>
+<div><img src="{up}assets/sadhama-logo-white-lg.png" width="160" height="99" alt="Sadhama" style="margin-bottom:14px"><p>Silent Insight Vipassana retreats in nature, on the River Thames at Hardwick Estate, Oxfordshire. Run by <a href="https://sadhama.com" rel="noopener">Sadhama</a>.</p></div>
 <div><h4>Retreats</h4><ul><li><a href="{up}retreats.html">2027 dates &amp; booking</a></li><li><a href="{up}articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat?</a></li><li><a href="{up}articles/silent-retreat-near-london.html">Silent retreat near London</a></li></ul></div>
 <div><h4>Learn</h4><ul><li><a href="{up}ask-ananda.html">Ask Ananda</a></li><li><a href="{up}library.html">Dhamma library</a></li><li><a href="{up}articles.html">All articles</a></li></ul></div>
 <div><h4>Contact</h4><ul><li>info@sadhama.com</li><li>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA</li><li><a href="https://www.instagram.com/sadhamayoga/" rel="noopener">Instagram</a></li></ul></div>
@@ -107,7 +108,7 @@ def card(a, depth=0):
             f'<div class="body"><h3>{html.escape(a["title"])}</h3><p>{html.escape(a["description"])}</p><span class="more">Read · {a["mins"]} min</span></div></a></article>')
 
 AUTHOR = {"@type": "Person", "name": "Dmitry Glazkov", "url": DOMAIN + "/teacher.html"}
-ORG = {"@type": "Organization", "name": "Sadhama Rewild Retreats", "url": "https://sadhama.com", "email": "info@sadhama.com"}
+ORG = {"@type": "Organization", "name": "Sadhama Rewild Retreats", "url": "https://sadhama.com", "email": "info@sadhama.com", "logo": DOMAIN + "/assets/sadhama-logo-white-lg.png"}
 
 def build_articles(arts):
     for i, a in enumerate(arts):
@@ -325,10 +326,10 @@ def build_library():
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Dhamma library", "hasPart": [{"@type": "Book", "name": f"{c['title']} ({c['en']})", "translator": {"@type": "Person", "name": "Bhikkhu Sujato"}, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "url": f"{DOMAIN}/read.html#{c['slug']}"} for c in cat]}]
     page('library.html', 'Free Dhamma Library: Read & Listen to the Suttas | Vipassana Retreat UK', 'Read, download or listen to eight collections of the Buddha\'s discourses: Dhammapada, Saṁyutta and Aṅguttara Nikāya, Sutta Nipāta, Udāna, Itivuttaka, Thera- and Therīgāthā.', body, 'library.html', 'lily-pond-mist', ld, extra_head=head)
     reader_head = '''<style>.reader{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;align-items:start}
-.toc{position:sticky;top:76px;max-height:calc(100vh - 90px);overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.toc{position:sticky;top:84px;max-height:calc(100vh - 98px);overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
 .toc select{width:100%;min-height:44px;font:15px var(--sans);border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 10px;margin-bottom:10px}
 .toc ol{list-style:none;margin:0;padding:0;font-size:14px}.toc li a{display:block;padding:7px 8px;border-radius:8px;text-decoration:none;color:var(--ink)}.toc li a:hover,.toc li a.on{background:var(--mist);color:var(--oak)}
-.tools{position:sticky;top:64px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tools{position:sticky;top:72px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:18px}
 .tools button,.tools select{min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:600 14px var(--sans);padding:0 14px;cursor:pointer}
 .tools .play{background:var(--sun);color:#fff;border-color:var(--sun)}.tools select{font-weight:400;max-width:200px}
 .text{font-family:var(--serif);font-size:var(--fs,20px);line-height:1.65;max-width:70ch}.text header ul{list-style:none;padding:0;margin:2em 0 0;color:var(--soft);font:14px var(--sans)}.text header li{display:inline}.text header li+li::before{content:" · "}
