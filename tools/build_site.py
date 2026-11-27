@@ -12,8 +12,10 @@ WT = dict(env='https://www.wetravel.com', uid='202227', vip='68342383', thai='79
 CHECKOUT = f"https://www.wetravel.com/checkout_embed?uuid={WT['vip']}"
 TRIP = 'https://sadhama.wetravel.com/trips/insight-vipassana-silent-meditation-retreats-2026-sadhama-rewild-retreats-68342383'
 PROFILE = 'https://www.wetravel.com/users/sadhama'
+# Brevo subscription form link (Brevo > Contacts > Forms > your form > Share > link). Empty = sign-up hidden.
+BREVO_FORM_URL = ''
 DATES = [('2027-05-31', '2027-06-06', '31 May – 6 June'), ('2027-07-26', '2027-08-01', '26 July – 1 August'), ('2027-08-30', '2027-09-05', '30 August – 5 September')]
-NAV = [('retreats.html', 'Retreats & booking'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('teacher.html', 'Teacher')]
+NAV = [('retreats.html', 'Retreats & booking'), ('testimonials.html', 'Reviews'), ('gallery.html', 'Gallery'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('teacher.html', 'Teacher')]
 
 def book_btn(label='Book your place', cls='btn book', extra='', uuid=None):
     u = uuid or WT['vip']
@@ -25,7 +27,7 @@ LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="1
 def rel(href, depth):
     """Map site-absolute content links to relative static paths."""
     m = {'/': 'index.html', '/retreats/': 'retreats.html', '/teacher/': 'teacher.html', '/ask-ananda/': 'ask-ananda.html',
-         '/library/': 'library.html', '/articles/': 'articles.html'}
+         '/library/': 'library.html', '/articles/': 'articles.html', '/testimonials/': 'testimonials.html', '/gallery/': 'gallery.html'}
     if href.startswith('http') or href.startswith('#') or href.startswith('mailto:'): return href
     h = m.get(href)
     if h is None:
@@ -35,6 +37,13 @@ def rel(href, depth):
 
 def fix_links(s, depth):
     return re.sub(r'href="(/[^"]*)"', lambda m: f'href="{rel(m.group(1), depth)}"', s)
+
+NEWSLETTER = '''<section class="nl-band" data-nl hidden><div class="wrap nl-in"><div><h2>Retreat news and Dhamma letters</h2><p>New dates, early-bird places and short teachings from Dmitry, a few times a year. No spam; unsubscribe any time.</p></div>
+<form class="nl-form" novalidate><label class="sr" for="nl-e1">Email address</label><input id="nl-e1" type="email" name="EMAIL" placeholder="Your email" autocomplete="email" required><button class="btn book" type="submit">Subscribe</button><p class="nl-msg small" role="status"></p></form></div></section>
+<div class="nl-pop" id="nl-pop" role="dialog" aria-modal="true" aria-labelledby="nl-t" hidden data-nl><div class="nl-card"><button type="button" class="nl-x" aria-label="Close">×</button>
+<h2 id="nl-t">Stay close to the practice</h2><p>Be first to hear about new retreat dates and early-bird places, and receive short Dhamma teachings from Dmitry.</p>
+<form class="nl-form" novalidate><label class="sr" for="nl-n2">First name</label><input id="nl-n2" type="text" name="FIRSTNAME" placeholder="First name" autocomplete="given-name"><label class="sr" for="nl-e2">Email address</label><input id="nl-e2" type="email" name="EMAIL" placeholder="Your email" autocomplete="email" required><button class="btn book" type="submit">Subscribe</button><p class="nl-msg small" role="status"></p></form>
+<p class="small muted" style="margin:8px 0 0">A few emails a year. Unsubscribe any time.</p></div></div>'''
 
 def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=None, scripts='', depth=0, canonical=None, extra_head=''):
     up = '../' * depth
@@ -59,6 +68,7 @@ def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=No
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="Main">{nav}</nav></div></header>
 <main id="main">{fix_links(body, depth)}</main>
+{NEWSLETTER}
 <footer><div class="wrap"><div class="cols">
 <div><img src="{up}assets/sadhama-logo-white-lg.png" width="160" height="99" alt="Sadhama" style="margin-bottom:14px"><p>Silent Insight Vipassana retreats in nature, on the River Thames at Hardwick Estate, Oxfordshire. Run by <a href="https://sadhama.com" rel="noopener">Sadhama</a>.</p></div>
 <div><h4>Retreats</h4><ul><li><a href="{up}retreats.html">2027 dates &amp; booking</a></li><li><a href="{up}articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat?</a></li><li><a href="{up}articles/silent-retreat-near-london.html">Silent retreat near London</a></li></ul></div>
@@ -66,7 +76,7 @@ def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=No
 <div><h4>Contact</h4><ul><li>info@sadhama.com</li><li>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA</li><li><a href="https://www.instagram.com/sadhamayoga/" rel="noopener">Instagram</a></li></ul></div>
 </div><p class="small" style="margin-top:28px;opacity:.75">Sutta translations by Bhikkhu Sujato, SuttaCentral, dedicated to the public domain (CC0). Photographs © Sadhama.</p></div></footer>
 {book_btn('Book a retreat', 'btn book float-book')}
-<script src="{up}assets/site.js"></script>{scripts}
+<script>window.NL_ACTION={json.dumps(BREVO_FORM_URL)};</script><script src="{up}assets/site.js"></script>{scripts}
 <script src="https://cdn.wetravel.com/widgets/embed_checkout.js"></script>
 </body></html>'''
     p = OUT / path; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(doc)
@@ -76,6 +86,7 @@ def img(name, alt, cls='', sizes='100vw', depth=0, eager=False):
     return (f'<img src="{up}img/{name}.jpg" srcset="{up}img/{name}-sm.jpg 800w, {up}img/{name}.jpg 1800w" sizes="{sizes}" '
             f'alt="{html.escape(alt)}" {"" if eager else "loading=lazy "}decoding="async"{(" class=" + chr(34) + cls + chr(34)) if cls else ""}>')
 
+SMILE = 'riverside-talk'
 ALT = {'oak-marquee-dawn': 'Meditators in a white marquee beneath an old oak at dawn, mist over the Thames valley',
        'marquee-dawn': 'The meditation marquee in a misty meadow at Hardwick Estate, early morning',
        'lily-pond-mist': 'Mist over still water with lily pads and reeds at dawn',
@@ -196,13 +207,13 @@ def build_home(arts):
 <p class="lede">Vipassanā means seeing clearly. For a week you follow a simple monastery rhythm, the bell tells you where to be, and you learn to meet thoughts, feelings and sensations as they are.</p>
 <ul class="ticks"><li>Sitting and walking meditation in the Mahasi Sayadaw noting tradition</li><li>Daily yoga to prepare the body for sitting</li><li>Dhamma talks and personal interviews with the teacher</li><li>Plant-based Ayurvedic meals, much of it grown on the estate</li><li>Wild swimming in the Thames and a riverside sauna</li></ul>
 <p style="margin-top:20px"><a href="/articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat? →</a></p></div>
-{img("dmitry-teaching", ALT["dmitry-teaching"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+{img(SMILE, ALT[SMILE], sizes="(max-width:820px) 100vw, 600px")}</div></section>
 
 <section class="band oak"><div class="wrap"><h2>From people who have sat with us</h2>
 <div class="stats" style="margin-bottom:28px"><div><b>4.9</b><span>average from 167 WeTravel reviews</span></div><div><b>35+</b><span>retreats run by Sadhama</span></div><div><b>1,700+</b><span>participants</span></div></div>
-{quotes_html()}</div></section>
+{quotes_html()}<p style="margin-top:24px"><a class="btn light" href="/testimonials/">Read all guest reviews</a></p></div></section>
 
-<section class="band"><div class="wrap split">{img("riverside-talk", ALT["riverside-talk"], sizes="(max-width:820px) 100vw, 600px")}<div>
+<section class="band"><div class="wrap split">{img("circle-meadow", ALT["circle-meadow"], sizes="(max-width:820px) 100vw, 600px")}<div>
 <h2>Ask Ananda, your Dhamma assistant</h2>
 <p class="lede">Questions about sleepiness, pain, a wandering mind, the precepts, or what to bring? Ananda answers from Dmitry's retreat talks, in his words.</p>
 <p><a class="btn ghost" href="/ask-ananda/">Ask a question</a></p></div></div></section>
@@ -223,58 +234,118 @@ def build_home(arts):
     page('index.html', 'Vipassana Retreat UK: Silent Meditation Retreats near London 2027', 'Silent 7-day vipassana meditation retreats in nature on the River Thames, Oxfordshire, 40 minutes from London. 2027 dates, teaching offered for donation. Beginners welcome.', body, '', 'oak-marquee-dawn', ld)
 
 # ---------- retreats ----------
+def stars(n):
+    return '<span class="stars" aria-label="%d out of 5 stars">%s</span>' % (n, '★' * n)
+
+REVIEWS = json.loads((CONTENT / 'reviews.json').read_text())
+
+def review_card(r, clamp=True):
+    paras = ''.join(f'<p>{html.escape(p)}</p>' for p in r['text'].split('\n') if p.strip())
+    return (f'<article class="rv{" clamp" if clamp else ""}" data-cat="{r["cat"]}" data-src="{r["src"]}"><header>{stars(r["stars"])}<span class="rv-src">{r["src"]}</span></header>'
+            f'<div class="rv-text">{paras}</div><footer><b>{html.escape(r["name"])}</b><span>{html.escape(r["retreat"])}{(" · " + html.escape(r["date"])) if r["date"] else ""}</span></footer></article>')
+
+BR_SCORES = [('Teachers', 4.91), ('Location', 4.91), ('Value', 4.89), ('Accuracy', 4.89), ('Food', 4.88), ('Communication', 4.85), ('Accommodation', 4.71)]
+def scores_html():
+    return '<div class="scores">' + ''.join(f'<div class="score"><span>{k}</span><span class="bar"><i style="width:{(v/5)*100:.1f}%"></i></span><b>{v:.2f}</b></div>' for k, v in BR_SCORES) + '</div>'
+
+RATINGS = '<div class="ratings"><span><b>★ 4.9</b> 167 WeTravel reviews</span><span><b>★ 4.85</b> 85 BookRetreats reviews</span><span><b>★ 5.0</b> Google</span></div>'
+
 def build_retreats():
-    body = f'''<section class="page-hero">{img("marquee-dawn", ALT["marquee-dawn"], eager=True)}<div class="wrap"><h1>7-Day Insight Vipassana Silent Retreat, 2027</h1>
-<p>Hardwick Estate, on the River Thames in South Oxfordshire. Five full days of noble silence. Teaching offered for dāna.</p></div></section>
-<section class="band"><div class="wrap"><h2>Choose your dates</h2>{dates_html()}
-<p class="muted small" style="margin-top:16px">Booking opens in a secure WeTravel checkout window. You choose your date and accommodation, then pay a £75 deposit to hold your place.</p></div></section>
+    top = [r for r in REVIEWS if r['cat'] == 'vipassana' and len(r['text']) > 160][:6]
+    radio = ''.join(f'<label class="pick"><input type="radio" name="d" {"checked" if i == 0 else ""}><span><b>{lbl}</b> 2027</span></label>' for i, (s, e, lbl) in enumerate(DATES))
+    body = f'''<section class="page-hero">{img("marquee-dawn", ALT["marquee-dawn"], eager=True)}<div class="wrap"><h1>7-Day Insight Vipassana Silent Retreat in Nature, UK</h1>
+<p>Hardwick Estate on the River Thames, Oxfordshire · 40 minutes from London · Five full days of noble silence · Teaching offered for dāna</p>{RATINGS}</div></section>
+<nav class="secnav scroll" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#included">What's included</a><a href="#program">Program</a><a href="#food">Food</a><a href="#stay">Accommodation</a><a href="#teachers">Teachers</a><a href="#reviews">Reviews</a><a href="#location">Location</a><a href="#faq">FAQ</a></div></nav>
+<div class="wrap listing"><div class="main">
 
-<section class="band mist"><div class="wrap split"><div><h2>Find inner peace</h2>
-<p class="lede">An ancient method of meditation, pristinely simple in principle and profoundly transformative in application.</p>
-<p>Live in silence for a few days in a quiet natural place with clean, fresh air, in the Chilterns. Give yourself a digital detox: phone off, a break from the flow of information and endless tasks. Follow a healthy daily rhythm with the sun. Eat nourishing plant-based food, much of it grown organically on the estate. And slow down: plenty of quiet time to listen inwardly.</p>
-<p>Silence is kept for five full days. The only exception is the optional personal interviews with the teacher, to clarify anything about the practice.</p></div>
-{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+<section id="overview" class="sec"><h2>Find inner peace in seven days</h2>
+<p class="lede">An ancient method of meditation, pristinely simple in principle and profoundly transformative in application. Live in silence by the Thames, switch off your phone, eat nourishing plant-based food, and learn to see your mind clearly.</p>
+<div class="hl"><div><b>Five days of silence</b><span>The rare peace of total quiet, with personal teacher interviews.</span></div><div><b>Authentic method</b><span>Mahasi Sayadaw noting, as practised in the monasteries of Burma and Thailand.</span></div><div><b>Yoga every morning</b><span>Prepares the body so you can sit with less pain.</span></div><div><b>Wild nature</b><span>Meadow, ancient oaks, river swimming and a riverside sauna.</span></div><div><b>Ayurvedic food</b><span>Organic, plant-based, much of it grown on the estate.</span></div><div><b>Offered for dāna</b><span>£149 covers food and camping; give what you wish for the teaching.</span></div></div>
+<h3>Who this retreat is for</h3><ul class="ticks"><li><b>All levels:</b> complete beginners and experienced meditators. Every group has first-timers.</li><li>Anyone who needs a real pause: stress, anxiety, burnout, a big life change, or simply curiosity.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
+<h3>What you may take home</h3><ul class="ticks"><li>A calmer, clearer mind and better concentration</li><li>Less reactivity to stress, worry and difficult emotions</li><li>The skill of stepping back from thoughts instead of drowning in them</li><li>A daily practice you can keep at home</li><li>A deep rest for the nervous system, and a full digital detox</li></ul></section>
 
-<section class="band"><div class="wrap grid two" style="align-items:start"><div><h2>What's included</h2><ul class="ticks">
-<li><b>Five days of silence</b>, the rare peace of total quiet</li><li><b>Sitting meditation</b>, learning the noting method step by step</li>
-<li><b>Walking meditation</b>, the dynamic practice that traditionally accompanies sitting</li><li><b>Daily yoga</b> to prepare the body and ease hips, knees and back</li>
-<li><b>Dhamma talks</b> on the nature of mind, with stories from the suttas</li><li><b>Teacher interviews</b> for personal guidance</li>
-<li><b>Ayurvedic meals and teas</b>, organic and locally sourced where possible</li><li><b>Riverside sauna</b> on day one and day seven</li>
-<li><b>Wild swimming</b> in a clean stretch of the Thames</li><li><b>Campsite ground rent</b>, hot showers and toilets</li></ul></div>
-<div><h2>Not included</h2><ul class="ticks"><li>Tent (unless rented at booking), bedding</li><li>Cutlery and crockery: please bring your own</li><li>Yoga mat and a blanket for sitting (a few can be borrowed on request)</li><li>Massage and bodywork with the on-site therapists, at a reduced rate</li></ul>
-<h3 style="margin-top:28px">Accommodation</h3><p>Camp in the secluded riverside campsite: bring your own tent, campervan or caravan at no extra cost, or rent a pre-erected tent or a deluxe bell tent with a framed bed at checkout. Tents are single occupancy. No dogs, please.</p>
-<p><a href="/articles/what-to-bring-silent-retreat.html">Packing list →</a></p></div></div></section>
+<section id="included" class="sec"><h2>What's included</h2><div class="grid two" style="align-items:start"><ul class="ticks">
+<li>6 nights on the riverside campsite (ground for your own tent)</li><li>All sitting and walking meditations</li><li>Daily morning yoga</li><li>Dhamma talks and personal teacher interviews</li><li>Ayurvedic plant-based meals and teas</li><li>Riverside sauna on day one and day seven</li><li>Wild swimming in the Thames</li><li>Hot showers, toilets and parking</li><li>Support before and after the retreat</li></ul>
+<div><h3 style="margin-top:0">Not included</h3><ul class="ticks muted"><li>Travel to Hardwick</li><li>Tent hire (add at checkout), bedding</li><li>Cutlery and crockery: bring your own</li><li>Yoga mat and sitting blanket (a few to borrow)</li><li>Massage and bodywork, offered on site at a reduced rate</li></ul><p class="small"><a href="/articles/what-to-bring-silent-retreat.html">Full packing list →</a></p></div></div></section>
 
-<section class="band mist"><div class="wrap grid two" style="align-items:start"><div><h2>A day on retreat</h2><p class="muted">Monastery life: a simple schedule, a bell instead of a clock. Please follow it in full; it is designed for continuity of practice.</p></div>{timetable_html()}</div></section>
+<section id="program" class="sec"><h2>Program</h2>
+<ol class="days"><li><b>Day 1</b> Arrive from the afternoon, settle into your tent, orientation and first talk. Noble silence begins in the evening.</li><li><b>Days 2–6</b> Five days of silent practice: sitting and walking meditation, yoga, Dhamma talks, interviews. One new meditation object each day.</li><li><b>Day 7</b> Closing talk on taking the practice home, silence ends, sharing circle, sauna and departure.</li></ol>
+<h3>A day on retreat</h3><p class="muted">A bell instead of a clock. The schedule replicates monastery life and is designed for continuity of practice.</p>{timetable_html()}</section>
 
-<section class="band"><div class="wrap split">{img("riverside-talk", ALT["riverside-talk"], sizes="(max-width:820px) 100vw, 600px")}<div><h2>A generosity-based retreat</h2>
-<p><b>1. Organisational fee: £149</b> (deposit £75). Covers the basic costs of accommodation and food.</p>
-<p><b>2. Dāna</b> for the teaching itself. It's important for vipassana to be offered for donation, not for private gain. At the end of the retreat, based on what the week gave you, you offer whatever you feel moved to give.</p>
-<p>A few <b>seva tickets</b> are available for those who'd like to help the core team, or who can't afford the full fee. Apply through the booking page.</p>
-<p><a href="/articles/vipassana-retreat-cost-dana.html">Why we teach for dāna →</a></p></div></div></section>
+<section id="food" class="sec split">{img("riverside-talk", ALT["riverside-talk"], sizes="(max-width:820px) 100vw, 480px")}<div><h2>Food</h2><p>Fresh, organic, locally grown plant-based meals, prepared by Karen and her crew on the Ayurvedic principle of food as medicine. Much of the fruit and veg comes from Tolhurst Organic, a stock-free farm on the estate. Sattvic ingredients that support your meditation and leave you nourished, light and strong.</p><p class="muted">Tell us about allergies and intolerances when you book.</p></div></section>
 
-<section class="band oak"><div class="wrap grid two" style="align-items:start"><div><h2>Getting there</h2>
-<p>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA. About 40 minutes by train from London Paddington to Reading or Pangbourne, then a short taxi. By car, 20 minutes from Junction 12 of the M4. London Heathrow is about an hour away.</p>
-<p>The retreat is free from drugs, alcohol and intoxicants which cloud the mind.</p></div>
-<div><h2>Your teachers and hosts</h2><p><b>Dmitry Glazkov</b> teaches vipassana in the Mahasi tradition, yoga and Ayurveda, here and at the Indriya Retreat Centre in Thailand. <b>Karen Buckland</b> leads the kitchen with plant-based Ayurvedic cooking. <b>Bara Cechova</b> leads yoga, breathwork and bodywork.</p><p><a href="/teacher/">About the teacher →</a></p></div></div></section>
+<section id="stay" class="sec"><h2>Accommodation</h2><p>You stay in the secluded riverside campsite, with hot showers, a riverside sauna, composting toilets and fresh running water. Tents are single occupancy, so each person has their own space for silence.</p>
+<div class="pk"><div><b>Your own tent, campervan or caravan</b><span>Included in the £149</span></div><div><b>Private pre-erected tent</b><span>Small or medium, add at checkout</span></div><div><b>Canvas bell tent · Essential comfort</b><span>Add at checkout</span></div><div><b>Deluxe glamping bell tent</b><span>With a framed bed, add at checkout</span></div></div>
+<p class="small muted">No dogs, please. The retreat is free from alcohol, drugs and intoxicants.</p></section>
 
-<section class="band"><div class="wrap"><h2>From past retreats</h2>{quotes_html()}
-<div style="margin-top:24px"><script src="https://cdn.wetravel.com/widgets/embed_reviews.js" id="wetravel_review_widget" data-env="https://www.wetravel.com" data-version="v0.3" data-userslug="202227" data-uid="202227" data-showstars="true" data-showcount="true" data-name="WeTravel Review Widget"></script></div></div></section>
+<section id="teachers" class="sec"><h2>Your teachers</h2><div class="team">
+<div>{img("dmitry-teaching", ALT["dmitry-teaching"], sizes="200px")}<b>Dmitry Glazkov</b><span>Vipassana teacher in the Mahasi tradition, yoga and Ayurveda. Sits a month-long retreat every year and teaches at Indriya in Thailand. <a href="/teacher/">More</a></span></div>
+<div>{img("group-hills", ALT["group-hills"], sizes="200px")}<b>Karen Buckland</b><span>Co-founder of Sadhama and plant-based chef with 15+ years of experience, cooking Ayurvedically.</span></div>
+<div>{img("morning-stretch", ALT["morning-stretch"], sizes="200px")}<b>Bara Cechova</b><span>Leads the morning yoga, breathwork and bodywork.</span></div></div></section>
+
+<section id="reviews" class="sec"><h2>What guests say</h2><div class="rv-top"><div class="big"><b>4.85</b><span>{stars(5)}</span><span class="muted small">85 reviews on BookRetreats</span></div>{scores_html()}</div>
+<div class="rv-grid">{"".join(review_card(r) for r in top)}</div><p><a class="btn ghost" href="/testimonials/">Read all {len(REVIEWS)} reviews</a></p></section>
+
+<section id="location" class="sec"><h2>Location and travel</h2><p>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA: a community-run rural estate in the Chilterns, with ancient oaks, wildflower meadows and a clean stretch of the upper Thames. Easy to reach, yet deeply held in wild nature.</p>
+<ul class="ticks"><li><b>Train:</b> about 40 minutes from London Paddington to Reading or Pangbourne, then a short taxi</li><li><b>Car:</b> 20 minutes from Junction 12 of the M4, parking on site</li><li><b>Air:</b> London Heathrow is about an hour by car</li></ul></section>
+
+<section id="faq" class="sec"><h2>FAQ</h2>{faq_html(FAQ + RETREAT_FAQ)}</section>
+</div>
+
+<aside class="bookbox" aria-label="Book this retreat"><div class="bb-in"><span class="muted small">7 days / 6 nights</span><div class="price">£149 <small>+ dāna</small></div><span class="small muted">Organisational fee · deposit £75</span>
+<fieldset><legend class="small">Choose your dates</legend>{radio}</fieldset>{book_btn("Book now")}
+<ul class="small bb-list"><li>Secure your place with a £75 deposit</li><li>Balance due about a month before</li><li>Tents and bell tents can be added at checkout</li><li>Reduced-cost seva places on application</li></ul><p class="small muted" style="margin:0">Questions? info@sadhama.com</p></div></aside>
+</div>
 
 <section class="band mist"><div class="wrap"><h2>More silent retreats with Dmitry</h2><div class="grid two" style="align-items:start">
 <div class="date-card"><span class="yr">Thailand · 7 days</span><span class="when">25–31 January 2027</span><p style="margin:0"><b>Insight Vipassana Silent Retreat, Koh Phangan.</b> The same Mahasi noting practice, at the Indriya Retreat Centre by the sea on Koh Phangan, Thailand. From $350 (deposit $100).</p>{book_btn("Book Thailand", uuid=WT["thai"])}</div>
 <div class="date-card"><span class="yr">Hardwick · 4 days of gentle silence</span><span class="when">27–30 August 2027</span><p style="margin:0"><b>Practice of Peace.</b> Gentle meditation, yoga, forest bathing, sauna and plenty of time for yourself over the August bank holiday. A soft first step towards a 7 or 10-day vipassana.</p>{book_btn("Book Practice of Peace", uuid=WT["peace"])}</div>
-</div></div></section>
-
-<section class="band"><div class="wrap" style="max-width:860px"><h2>Retreat FAQ</h2>{faq_html(FAQ)}</div></section>'''
+</div></div></section>'''
     thai = event_ld('2027-01-25', '2027-01-31', 'Thailand January')
     thai.update(name='7-Day Insight Vipassana Silent Meditation Retreat, Koh Phangan, Thailand (January 2027)', location={"@type": "Place", "name": "Indriya Retreat Centre", "address": {"@type": "PostalAddress", "streetAddress": "66/9 Moo 5", "addressLocality": "Koh Phangan", "addressRegion": "Surat Thani", "postalCode": "84280", "addressCountry": "TH"}},
                 offers={"@type": "Offer", "price": "350", "priceCurrency": "USD", "url": "https://www.wetravel.com/trips/thailand-vipassana-silent-meditation-retreat-in-koh-phangan-sadhama-rewild-retreats-7915926147", "availability": "https://schema.org/InStock"})
     peace = event_ld('2027-08-27', '2027-08-30', 'August')
     peace.update(name='Practice of Peace: 4-Day Gentle Silent Retreat (August 2027)', description='Four days of gentle silence at Hardwick Estate: simple meditation, yoga, forest bathing, riverside sauna and Ayurvedic food.')
     peace.pop('offers', None)
-    ld = [FAQ_LD] + [event_ld(*d) for d in DATES] + [thai, peace]
-    page('retreats.html', '7-Day Silent Vipassana Retreat UK 2027: Dates & Booking', 'Book a 7-day silent Insight Vipassana retreat at Hardwick Estate, Oxfordshire, in 2027: 31 May, 26 July or 30 August. £149 organisational fee, teaching for dāna.', body, 'retreats.html', 'marquee-dawn', ld)
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ + RETREAT_FAQ]}
+    ld = [faq_ld] + [event_ld(*d) for d in DATES] + [thai, peace]
+    page('retreats.html', '7-Day Silent Vipassana Retreat UK 2027: Dates & Booking', 'Book a 7-day silent Insight Vipassana retreat at Hardwick Estate, Oxfordshire, in 2027: 31 May, 26 July or 30 August. £149 organisational fee, teaching for dāna. Rated 4.9 by 167 guests.', body, 'retreats.html', 'marquee-dawn', ld)
+
+RETREAT_FAQ = [
+ ('Can I use my phone?', 'Phones are switched off and put away for the whole retreat. Give your family the retreat contact details for emergencies. Most people find this the greatest gift of the week.'),
+ ('Can I share a tent with my partner or a friend?', 'No. On this retreat tents are single occupancy, so each person has their own space for silence and practice.'),
+ ('What if I arrive late or need to leave early?', 'Please plan to stay for the whole retreat: the technique is taught step by step and the schedule is designed for continuity. If something unavoidable comes up, tell us before you book.'),
+ ('Is a silent retreat suitable if I have mental health difficulties?', 'Often yes, but not always. If you have a mental health condition, or are going through a crisis, please tell us when you book so we can talk it through first.'),
+ ('How much should I give as dāna?', 'Whatever you feel moved to give, based on what the week gave you and what you can afford. There is no fixed amount and nobody checks.'),
+]
+
+def build_testimonials():
+    cats = [('all', 'All'), ('vipassana', 'Insight Vipassana'), ('peace', 'Practice of Peace'), ('meditation', 'Other retreats')]
+    chips = ''.join(f'<button type="button" class="chip{" on" if k == "all" else ""}" data-f="{k}">{t}</button>' for k, t in cats)
+    body = f'''<section class="page-hero">{img("group-panorama", ALT["group-panorama"], eager=True)}<div class="wrap"><h1>Reviews from our silent retreats</h1><p>{len(REVIEWS)} guests in their own words, about vipassana and meditation with Dmitry and Karen.</p>{RATINGS}</div></section>
+<section class="band"><div class="wrap"><div class="rv-top"><div class="big"><b>4.85</b><span>{stars(5)}</span><span class="muted small">BookRetreats, Insight Vipassana UK</span></div>{scores_html()}</div>
+<div class="chips" role="group" aria-label="Filter reviews">{chips}</div><div class="rv-grid" id="rvs">{"".join(review_card(r, False) for r in REVIEWS)}</div>
+<p class="muted small" style="margin-top:24px">All Vipassana, Practice of Peace and meditation-related reviews rated 4 or 5 stars on WeTravel, BookRetreats and Google, shown with first name and initial.</p>
+<div class="cta-box"><p>Ready to experience it yourself? Seven days by the Thames, 2027.</p>{book_btn()}</div></div></section>'''
+    page('testimonials.html', 'Vipassana Retreat Reviews & Testimonials | Vipassana Retreat UK', f'Read {len(REVIEWS)} reviews of our silent Insight Vipassana retreats in Oxfordshire: rated 4.9 from 167 WeTravel reviews and 4.85 on BookRetreats.', body, 'testimonials.html', 'group-panorama',
+         scripts="<script>{const g=document.getElementById('rvs');document.querySelectorAll('.chip[data-f]').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip[data-f]').forEach(x=>x.classList.toggle('on',x===c));const f=c.dataset.f;g.querySelectorAll('.rv').forEach(r=>r.hidden=!(f==='all'||r.dataset.cat===f));});}</script>")
+
+GALLERY = []  # filled at build time from img/gallery-*.jpg plus the core photos
+def build_gallery():
+    names = sorted(p.stem for p in (OUT / 'img').glob('*.jpg') if not p.stem.endswith('-sm'))
+    pics = [n for n in names if n.startswith('fb-')] + [n for n in ALT if n in names]
+    tiles = ''.join(f'<a class="tile" href="img/{n}.jpg" data-i="{i}">{img(n, ALT.get(n, "Insight Vipassana retreat at Hardwick Estate"), sizes="(max-width:600px) 50vw, 300px")}</a>' for i, n in enumerate(pics))
+    body = f'''<section class="page-hero">{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], eager=True)}<div class="wrap"><h1>Gallery</h1><p>Dawn mist, the old oak, the marquee in the meadow, and the people who sat with us.</p></div></section>
+<section class="band"><div class="wrap"><div class="gal" id="gal">{tiles}</div></div></section>
+<div class="lb" id="lb" hidden><button type="button" class="lb-x" aria-label="Close">×</button><button type="button" class="lb-p" aria-label="Previous photo">‹</button><img alt=""><button type="button" class="lb-n" aria-label="Next photo">›</button></div>
+<section class="band mist"><div class="wrap cta-box" style="margin:0 auto;max-width:1100px"><p>Come and sit in the meadow with us in 2027.</p>{book_btn()}</div></section>'''
+    js = """<script>{const lb=document.getElementById('lb'),im=lb.querySelector('img'),t=[...document.querySelectorAll('#gal .tile')];let i=0;
+const show=k=>{i=(k+t.length)%t.length;im.src=t[i].getAttribute('href');im.alt=t[i].querySelector('img').alt;lb.hidden=false;};
+t.forEach((a,k)=>a.addEventListener('click',e=>{e.preventDefault();show(k);}));
+lb.querySelector('.lb-x').onclick=()=>lb.hidden=true;lb.querySelector('.lb-p').onclick=()=>show(i-1);lb.querySelector('.lb-n').onclick=()=>show(i+1);
+lb.addEventListener('click',e=>{if(e.target===lb)lb.hidden=true;});document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')lb.hidden=true;if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});}</script>"""
+    page('gallery.html', 'Photo Gallery: Silent Vipassana Retreat on the Thames | Vipassana Retreat UK', 'Photos from our silent Insight Vipassana retreats at Hardwick Estate, Oxfordshire: dawn meditation in the meadow, the old oak, the river and the retreat community.', body, 'gallery.html', 'oak-marquee-dawn', scripts=js)
+
 
 # ---------- teacher ----------
 def build_teacher():
@@ -360,7 +431,7 @@ def build_library():
     page('read.html', 'Read the Suttas Online | Vipassana Retreat UK', 'Read and listen to the Buddha\'s discourses online in Bhikkhu Sujato\'s public-domain translation.', rbody, 'library.html', 'lily-pond-mist', scripts='<script src="assets/reader.js"></script>', extra_head=reader_head)
 
 def build_seo(arts):
-    urls = ['', 'retreats.html', 'articles.html', 'ask-ananda.html', 'library.html', 'teacher.html', 'read.html'] + [f'articles/{a["slug"]}.html' for a in arts]
+    urls = ['', 'retreats.html', 'testimonials.html', 'gallery.html', 'articles.html', 'ask-ananda.html', 'library.html', 'teacher.html', 'read.html'] + [f'articles/{a["slug"]}.html' for a in arts]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{DOMAIN}/{u}</loc><lastmod>2026-11-27</lastmod></url>\n' for u in urls) + '</urlset>\n'
     (OUT / 'sitemap.xml').write_text(sm)
     (OUT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n')
@@ -370,5 +441,5 @@ if __name__ == '__main__':
     for f in ('site.css', 'site.js', 'ananda.js', 'reader.js'):
         shutil.copy(SRC / f, OUT / 'assets' / f)
     arts = load_articles()
-    build_home(arts); build_retreats(); build_teacher(); build_articles(arts); build_ananda(); build_library(); build_seo(arts)
+    build_home(arts); build_retreats(); build_testimonials(); build_gallery(); build_teacher(); build_articles(arts); build_ananda(); build_library(); build_seo(arts)
     print('built', len(arts), 'articles')
