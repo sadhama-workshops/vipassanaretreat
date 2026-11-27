@@ -8,7 +8,7 @@ ROOT = Path(__file__).parent.parent; OUT = ROOT / (sys.argv[1] if len(sys.argv) 
 DOMAIN = 'https://vipassanaretreat.com'
 sys.path.insert(0, str(CONTENT)); from ananda_qa import QA
 
-WT = dict(env='https://www.wetravel.com', uid='202227', vip='68342383', thai='7915926147', peace='3370709561')
+WT = dict(env='https://www.wetravel.com', uid='202227', vip='68342383', thai='7915926147', peace='6139477701')
 CHECKOUT = f"https://www.wetravel.com/checkout_embed?uuid={WT['vip']}"
 TRIP = 'https://sadhama.wetravel.com/trips/insight-vipassana-silent-meditation-retreats-2026-sadhama-rewild-retreats-68342383'
 PROFILE = 'https://www.wetravel.com/users/sadhama'
