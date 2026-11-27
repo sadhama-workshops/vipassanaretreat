@@ -2,7 +2,7 @@
 title: Walking Meditation: How to Do It, Step by Step (Vipassana Style)
 description: How to practise vipassana walking meditation in the Mahasi tradition: lifting, moving, placing. Why the Buddha praised it, how to turn, and how to use it against sleepiness.
 keyword: walking meditation how to
-image: circle-dmitry
+image: fb-sunset-walk
 date: 2026-11-27
 ---
 

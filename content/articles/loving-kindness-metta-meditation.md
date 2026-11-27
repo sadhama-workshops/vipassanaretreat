@@ -2,7 +2,7 @@
 title: Loving-Kindness (Mettā) Meditation: Why We Practise It on a Vipassana Retreat
 description: What mettā (loving-kindness) meditation is, how it complements vipassana, a simple guided practice, and the Buddha's Mettā Sutta from the Sutta Nipāta.
 keyword: loving kindness meditation
-image: group-panorama
+image: fb-group-belltents
 date: 2026-11-27
 ---
 

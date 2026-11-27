@@ -2,7 +2,7 @@
 title: Goenka 10-Day Vipassana vs a 7-Day Insight Retreat: Which Is Right for You?
 description: An honest, respectful comparison of the S.N. Goenka 10-day vipassana course and a 7-day Mahasi-style insight retreat: technique, schedule, teacher contact, yoga, cost and waiting lists.
 keyword: goenka 10 day vs shorter vipassana retreat
-image: dmitry-teaching
+image: fb-instruction
 date: 2026-11-27
 ---
 

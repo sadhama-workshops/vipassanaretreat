@@ -2,7 +2,7 @@
 title: After the Retreat: How to Keep Your Meditation Practice Going at Home
 description: How to keep meditating after a silent retreat: a realistic daily routine, three-minute check-ins, meditating before sleep, reading the suttas, and the eight worldly winds.
 keyword: daily meditation practice after retreat
-image: group-hills
+image: fb-golden-sunrise
 date: 2026-11-27
 ---
 

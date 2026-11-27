@@ -2,7 +2,7 @@
 title: Can a Beginner Do a Vipassana Retreat?
 description: Never meditated? You can still do a silent vipassana retreat. A teacher answers the common worries: sitting, silence, emotions, sleepiness, and whether you'll "fail".
 keyword: vipassana for beginners
-image: circle-meadow
+image: fb-meditator-red
 date: 2026-11-27
 ---
 

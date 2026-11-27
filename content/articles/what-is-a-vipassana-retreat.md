@@ -2,7 +2,7 @@
 title: What Is a Vipassana Retreat? An Honest Guide from a Teacher
 description: What really happens on a vipassana retreat: silence, noting, walking meditation, the daily schedule, and why "vipassana" is a result, not a technique. From a teacher who runs silent retreats in Oxfordshire.
 keyword: what is a vipassana retreat
-image: oak-marquee-dawn
+image: fb-sitting-marquee
 date: 2026-11-27
 ---
 

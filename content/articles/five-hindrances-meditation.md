@@ -2,7 +2,7 @@
 title: The Five Hindrances: Why Your Mind Won't Settle, and What to Do
 description: Desire, aversion, sleepiness, restlessness and doubt: the five hindrances explained with the Buddha's simile of the bowl of water, and practical noting tips for each.
 keyword: five hindrances meditation
-image: lily-pond-mist
+image: fb-mist-valley
 date: 2026-11-27
 ---
 

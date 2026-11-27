@@ -2,7 +2,7 @@
 title: Noting Meditation: Rising and Falling, Step by Step
 description: Learn the Mahasi vipassana noting technique at home: posture, finding the rising and falling of the belly, how to note thoughts, sounds and feelings, and common mistakes.
 keyword: noting meditation rising falling
-image: dmitry-teaching
+image: fb-morning-sit
 date: 2026-11-27
 ---
 

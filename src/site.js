@@ -25,14 +25,20 @@
       try { await fetch(action, { method: 'POST', mode: 'no-cors', body: fd }); msg.textContent = 'Thank you. Please check your inbox to confirm your subscription.'; f.querySelector('button').disabled = true; store.set('nl-done', '1'); }
       catch (err) { msg.textContent = 'Sorry, that didn’t go through. Please try again, or email info@sadhama.com.'; }
     }));
-    const close = () => { pop.hidden = true; store.set('nl-seen', String(Date.now())); };
-    const seen = +store.get('nl-seen') || 0, done = store.get('nl-done');
-    if (pop && !done && Date.now() - seen > 1000 * 60 * 60 * 24 * 14) {
-      let shown = false; const show = () => { if (shown) return; shown = true; pop.hidden = false; pop.querySelector('input[type=email]').focus({ preventScroll: true }); };
-      setTimeout(show, 35000);
-      addEventListener('scroll', () => { if (scrollY > document.body.scrollHeight * 0.55) show(); }, { passive: true });
-      pop.querySelector('.nl-x').onclick = close; pop.addEventListener('click', e => { if (e.target === pop) close(); });
-      addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) close(); });
+    // Gentle invitation: a small corner card, never a blocking window.
+    // Shows only after a real read (60s on the page AND half-way down), at most once a month,
+    // stays away for 3 months after "No thanks" or ×, never on the booking page, never steals focus.
+    const DAY = 864e5, now = Date.now();
+    const quiet = +store.get('nl-quiet') || 0, done = store.get('nl-done');
+    const close = (days) => { pop.classList.remove('in'); setTimeout(() => pop.hidden = true, 400); store.set('nl-quiet', String(Date.now() + days * DAY)); };
+    if (pop && !done && now > quiet && !document.querySelector('.bookbox')) {
+      let timeOk = false, scrollOk = false, shown = false;
+      const maybe = () => { if (shown || !timeOk || !scrollOk) return; shown = true; pop.hidden = false; requestAnimationFrame(() => pop.classList.add('in')); store.set('nl-quiet', String(Date.now() + 30 * DAY)); };
+      setTimeout(() => { timeOk = true; maybe(); }, 60000);
+      addEventListener('scroll', () => { if (scrollY + innerHeight > document.body.scrollHeight * 0.5) { scrollOk = true; maybe(); } }, { passive: true });
+      pop.querySelector('.nl-x').onclick = () => close(90);
+      pop.querySelector('.nl-later').onclick = () => close(90);
+      addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) close(90); });
     }
   }
 }

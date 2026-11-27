@@ -2,7 +2,7 @@
 title: A Silent Retreat Near London: Vipassana on the Thames in Oxfordshire
 description: Looking for a silent meditation retreat near London? Our 7-day vipassana retreats are at Hardwick Estate in the Chilterns, 40 minutes by train from Paddington.
 keyword: silent retreat near London
-image: lily-pond-mist
+image: fb-marquee-hills
 date: 2026-11-27
 ---
 

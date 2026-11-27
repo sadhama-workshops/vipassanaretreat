@@ -2,7 +2,7 @@
 title: What to Bring to a Silent Retreat: A Practical Packing List
 description: Packing list for a silent camping meditation retreat in the UK: clothes for 4:30am sits, bedding, meditation cushion, what to leave at home, and how to handle your phone.
 keyword: what to bring to a silent retreat
-image: morning-stretch
+image: fb-belltents
 date: 2026-11-27
 ---
 

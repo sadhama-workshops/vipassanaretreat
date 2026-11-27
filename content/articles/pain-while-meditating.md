@@ -2,7 +2,7 @@
 title: Knee and Back Pain in Meditation: How to Work With It, Not Against It
 description: Pain while sitting in meditation is common. Practical posture tips and the vipassana way of noting pain as sensation, so it loses its grip. From a meditation and yoga teacher.
 keyword: meditation knee back pain
-image: sauna-dmitry
+image: fb-yoga-stretch
 date: 2026-11-27
 ---
 

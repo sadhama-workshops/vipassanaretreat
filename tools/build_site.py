@@ -40,10 +40,10 @@ def fix_links(s, depth):
 
 NEWSLETTER = '''<section class="nl-band" data-nl hidden><div class="wrap nl-in"><div><h2>Retreat news and Dhamma letters</h2><p>New dates, early-bird places and short teachings from Dmitry, a few times a year. No spam; unsubscribe any time.</p></div>
 <form class="nl-form" novalidate><label class="sr" for="nl-e1">Email address</label><input id="nl-e1" type="email" name="EMAIL" placeholder="Your email" autocomplete="email" required><button class="btn book" type="submit">Subscribe</button><p class="nl-msg small" role="status"></p></form></div></section>
-<div class="nl-pop" id="nl-pop" role="dialog" aria-modal="true" aria-labelledby="nl-t" hidden data-nl><div class="nl-card"><button type="button" class="nl-x" aria-label="Close">×</button>
-<h2 id="nl-t">Stay close to the practice</h2><p>Be first to hear about new retreat dates and early-bird places, and receive short Dhamma teachings from Dmitry.</p>
-<form class="nl-form" novalidate><label class="sr" for="nl-n2">First name</label><input id="nl-n2" type="text" name="FIRSTNAME" placeholder="First name" autocomplete="given-name"><label class="sr" for="nl-e2">Email address</label><input id="nl-e2" type="email" name="EMAIL" placeholder="Your email" autocomplete="email" required><button class="btn book" type="submit">Subscribe</button><p class="nl-msg small" role="status"></p></form>
-<p class="small muted" style="margin:8px 0 0">A few emails a year. Unsubscribe any time.</p></div></div>'''
+<aside class="nl-pop" id="nl-pop" aria-labelledby="nl-t" hidden data-nl><button type="button" class="nl-x" aria-label="Close">×</button>
+<p class="nl-t" id="nl-t">Retreat news, now and then</p><p class="small">New dates and a short Dhamma letter from Dmitry, a few times a year.</p>
+<form class="nl-form" novalidate><label class="sr" for="nl-e2">Email address</label><input id="nl-e2" type="email" name="EMAIL" placeholder="Your email" autocomplete="email" required><button class="btn ghost" type="submit">Subscribe</button><p class="nl-msg small" role="status"></p></form>
+<button type="button" class="nl-later small">No thanks</button></aside>'''
 
 def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=None, scripts='', depth=0, canonical=None, extra_head=''):
     up = '../' * depth
@@ -86,7 +86,7 @@ def img(name, alt, cls='', sizes='100vw', depth=0, eager=False):
     return (f'<img src="{up}img/{name}.jpg" srcset="{up}img/{name}-sm.jpg 800w, {up}img/{name}.jpg 1800w" sizes="{sizes}" '
             f'alt="{html.escape(alt)}" {"" if eager else "loading=lazy "}decoding="async"{(" class=" + chr(34) + cls + chr(34)) if cls else ""}>')
 
-SMILE = 'riverside-talk'
+SMILE = 'fb-group-smiling'
 ALT = {'oak-marquee-dawn': 'Meditators in a white marquee beneath an old oak at dawn, mist over the Thames valley',
        'marquee-dawn': 'The meditation marquee in a misty meadow at Hardwick Estate, early morning',
        'lily-pond-mist': 'Mist over still water with lily pads and reeds at dawn',
@@ -99,6 +99,7 @@ ALT = {'oak-marquee-dawn': 'Meditators in a white marquee beneath an old oak at 
        'group-panorama': 'A large retreat group in a half circle beside the marquee on the last morning',
        'riverside-talk': 'Teacher and guests sitting in a circle on the bank of the River Thames',
        'sauna-dmitry': 'Dmitry relaxing in the riverside wooden sauna'}
+ALT.update(json.loads((CONTENT / 'fb_alts.json').read_text()))
 
 # ---------- articles ----------
 def load_articles():
@@ -144,7 +145,7 @@ def build_articles(arts):
                   {"@type": "ListItem", "position": 2, "name": "Articles", "item": DOMAIN + "/articles.html"},
                   {"@type": "ListItem", "position": 3, "name": a['title']}]}]
         page(f'articles/{a["slug"]}.html', a['title'] + ' | Vipassana Retreat UK', a['description'], body, 'articles.html', a['image'], ld, depth=1)
-    body = f'''<section class="page-hero">{img("lily-pond-mist", ALT["lily-pond-mist"], eager=True)}<div class="wrap"><h1>Articles on silent retreat and vipassana practice</h1>
+    body = f'''<section class="page-hero">{img("fb-river-sunset", ALT["fb-river-sunset"], eager=True)}<div class="wrap"><h1>Articles on silent retreat and vipassana practice</h1>
 <p>Practical guides from Dmitry's retreat talks: what to expect, how to practise, and how to keep going at home.</p></div></section>
 <section class="band"><div class="wrap"><div class="grid">{"".join(card(a) for a in arts)}</div></div></section>'''
     page('articles.html', 'Vipassana & Silent Retreat Articles | Vipassana Retreat UK', 'Guides to silent meditation retreats and vipassana practice: first retreat, what to bring, noting and walking meditation, pain, the hindrances, mettā.', body, 'articles.html', 'lily-pond-mist')
@@ -213,7 +214,7 @@ def build_home(arts):
 <div class="stats" style="margin-bottom:28px"><div><b>4.9</b><span>average from 167 WeTravel reviews</span></div><div><b>35+</b><span>retreats run by Sadhama</span></div><div><b>1,700+</b><span>participants</span></div></div>
 {quotes_html()}<p style="margin-top:24px"><a class="btn light" href="/testimonials/">Read all guest reviews</a></p></div></section>
 
-<section class="band"><div class="wrap split">{img("circle-meadow", ALT["circle-meadow"], sizes="(max-width:820px) 100vw, 600px")}<div>
+<section class="band"><div class="wrap split">{img("fb-teacher-smile", ALT["fb-teacher-smile"], sizes="(max-width:820px) 100vw, 600px")}<div>
 <h2>Ask Ananda, your Dhamma assistant</h2>
 <p class="lede">Questions about sleepiness, pain, a wandering mind, the precepts, or what to bring? Ananda answers from Dmitry's retreat talks, in his words.</p>
 <p><a class="btn ghost" href="/ask-ananda/">Ask a question</a></p></div></div></section>
@@ -222,7 +223,7 @@ def build_home(arts):
 <h2>A free library of the Buddha's words</h2>
 <p class="lede">Eight collections from the Pāḷi Canon, in Bhikkhu Sujato's public-domain translation. Read online, download as an ebook, or press Listen and have them read aloud.</p>
 <p><a class="btn ghost" href="/library/">Open the library</a></p></div>
-{img("lily-pond-mist", ALT["lily-pond-mist"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+{img("fb-river-dawn", ALT["fb-river-dawn"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
 
 <section class="band"><div class="wrap"><h2>Guides for your practice</h2><div class="grid">{"".join(card(a) for a in arts[:6])}</div>
 <p style="margin-top:22px"><a href="/articles/">All articles →</a></p></div></section>
@@ -272,7 +273,7 @@ def build_retreats():
 <ol class="days"><li><b>Day 1</b> Arrive from the afternoon, settle into your tent, orientation and first talk. Noble silence begins in the evening.</li><li><b>Days 2–6</b> Five days of silent practice: sitting and walking meditation, yoga, Dhamma talks, interviews. One new meditation object each day.</li><li><b>Day 7</b> Closing talk on taking the practice home, silence ends, sharing circle, sauna and departure.</li></ol>
 <h3>A day on retreat</h3><p class="muted">A bell instead of a clock. The schedule replicates monastery life and is designed for continuity of practice.</p>{timetable_html()}</section>
 
-<section id="food" class="sec split">{img("riverside-talk", ALT["riverside-talk"], sizes="(max-width:820px) 100vw, 480px")}<div><h2>Food</h2><p>Fresh, organic, locally grown plant-based meals, prepared by Karen and her crew on the Ayurvedic principle of food as medicine. Much of the fruit and veg comes from Tolhurst Organic, a stock-free farm on the estate. Sattvic ingredients that support your meditation and leave you nourished, light and strong.</p><p class="muted">Tell us about allergies and intolerances when you book.</p></div></section>
+<section id="food" class="sec split">{img("fb-meal-laughter", ALT["fb-meal-laughter"], sizes="(max-width:820px) 100vw, 480px")}<div><h2>Food</h2><p>Fresh, organic, locally grown plant-based meals, prepared by Karen and her crew on the Ayurvedic principle of food as medicine. Much of the fruit and veg comes from Tolhurst Organic, a stock-free farm on the estate. Sattvic ingredients that support your meditation and leave you nourished, light and strong.</p><p class="muted">Tell us about allergies and intolerances when you book.</p></div></section>
 
 <section id="stay" class="sec"><h2>Accommodation</h2><p>You stay in the secluded riverside campsite, with hot showers, a riverside sauna, composting toilets and fresh running water. Tents are single occupancy, so each person has their own space for silence.</p>
 <div class="pk"><div><b>Your own tent, campervan or caravan</b><span>Included in the £149</span></div><div><b>Private pre-erected tent</b><span>Small or medium, add at checkout</span></div><div><b>Canvas bell tent · Essential comfort</b><span>Add at checkout</span></div><div><b>Deluxe glamping bell tent</b><span>With a framed bed, add at checkout</span></div></div>
@@ -322,7 +323,7 @@ RETREAT_FAQ = [
 def build_testimonials():
     cats = [('all', 'All'), ('vipassana', 'Insight Vipassana'), ('peace', 'Practice of Peace'), ('meditation', 'Other retreats')]
     chips = ''.join(f'<button type="button" class="chip{" on" if k == "all" else ""}" data-f="{k}">{t}</button>' for k, t in cats)
-    body = f'''<section class="page-hero">{img("group-panorama", ALT["group-panorama"], eager=True)}<div class="wrap"><h1>Reviews from our silent retreats</h1><p>{len(REVIEWS)} guests in their own words, about vipassana and meditation with Dmitry and Karen.</p>{RATINGS}</div></section>
+    body = f'''<section class="page-hero">{img("fb-group-marquee", ALT["fb-group-marquee"], eager=True)}<div class="wrap"><h1>Reviews from our silent retreats</h1><p>{len(REVIEWS)} guests in their own words, about vipassana and meditation with Dmitry and Karen.</p>{RATINGS}</div></section>
 <section class="band"><div class="wrap"><div class="rv-top"><div class="big"><b>4.85</b><span>{stars(5)}</span><span class="muted small">BookRetreats, Insight Vipassana UK</span></div>{scores_html()}</div>
 <div class="chips" role="group" aria-label="Filter reviews">{chips}</div><div class="rv-grid" id="rvs">{"".join(review_card(r, False) for r in REVIEWS)}</div>
 <p class="muted small" style="margin-top:24px">All Vipassana, Practice of Peace and meditation-related reviews rated 4 or 5 stars on WeTravel, BookRetreats and Google, shown with first name and initial.</p>

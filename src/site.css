@@ -166,9 +166,14 @@ pre,.scroll{overflow-x:auto}
 @media(max-width:760px){.nl-in{grid-template-columns:minmax(0,1fr)}}
 .nl-form{display:flex;flex-wrap:wrap;gap:10px}.nl-form input{flex:1 1 200px;min-height:50px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:16px var(--sans);padding:0 18px}
 .nl-form input:focus{outline:none;border-color:var(--oak)}.nl-msg{flex-basis:100%;margin:0;min-height:1.2em;color:var(--soft)}
-.nl-pop{position:fixed;inset:0;z-index:55;background:rgba(8,16,12,.55);display:grid;place-items:center;padding:16px}.nl-pop[hidden]{display:none}
-.nl-card{position:relative;background:var(--paper);border-radius:20px;max-width:460px;width:100%;padding:30px 26px 24px;box-shadow:0 30px 60px rgba(0,0,0,.25);border-top:6px solid var(--sun)}
-.nl-card .nl-form input{flex-basis:100%}.nl-card .btn{width:100%}.nl-x{position:absolute;top:10px;right:12px;width:44px;height:44px;border:0;background:transparent;color:var(--soft);font-size:28px;cursor:pointer}
+.nl-pop{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;width:min(320px,calc(100vw - 32px));background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px;box-shadow:0 12px 30px rgba(20,40,30,.14);opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.nl-pop.in{opacity:1;transform:none}.nl-pop[hidden]{display:none}
+.nl-pop .nl-t{font:600 18px/1.3 var(--serif);margin:0 28px 4px 0}.nl-pop p.small{margin:0 0 10px;color:var(--soft)}
+.nl-pop .nl-form input{flex-basis:100%;min-height:44px}.nl-pop .btn{width:100%;min-height:44px}
+.nl-x{position:absolute;top:4px;right:6px;width:40px;height:40px;border:0;background:transparent;color:var(--soft);font-size:24px;cursor:pointer}
+.nl-later{display:block;margin:4px auto 0;border:0;background:none;color:var(--soft);cursor:pointer;min-height:36px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){.nl-pop{left:12px;right:12px;width:auto;bottom:84px}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .nav a{padding:10px 10px}
 @media(min-width:981px){body:has(.bookbox) .float-book{display:none}}
+.nl-msg:empty{display:none}

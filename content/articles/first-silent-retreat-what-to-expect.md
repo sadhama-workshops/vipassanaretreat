@@ -2,7 +2,7 @@
 title: Your First Silent Retreat: What Really Happens, Day by Day
 description: A day-by-day guide to your first silent meditation retreat: arrival, the hard days, the turning point, and leaving. Honest advice from a vipassana teacher.
 keyword: first silent retreat what to expect
-image: marquee-dawn
+image: fb-dawn-sit
 date: 2026-11-27
 ---
 

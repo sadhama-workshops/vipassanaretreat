@@ -2,7 +2,7 @@
 title: How Much Does a Vipassana Retreat Cost? Why We Teach for Dāna
 description: Why vipassana is traditionally offered for donation (dāna), what the £149 organisational fee covers on our UK silent retreat, and how to decide what to give.
 keyword: vipassana retreat cost
-image: riverside-talk
+image: fb-meal-together
 date: 2026-11-27
 ---
 
