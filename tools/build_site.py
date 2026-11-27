@@ -13,7 +13,7 @@ CHECKOUT = f"https://www.wetravel.com/checkout_embed?uuid={WT['vip']}"
 TRIP = 'https://sadhama.wetravel.com/trips/insight-vipassana-silent-meditation-retreats-2026-sadhama-rewild-retreats-68342383'
 PROFILE = 'https://www.wetravel.com/users/sadhama'
 # Brevo subscription form link (Brevo > Contacts > Forms > your form > Share > link). Empty = sign-up hidden.
-BREVO_FORM_URL = ''
+BREVO_FORM_URL = 'https://3cda042e.sibforms.com/serve/MUIFAFoC-7B41FIhIknUzWi_EUL8s3z2sYQtNM_B_DoOpqzE-NmmmIELIeGLVuX0svfNNv3IqSGmLw_usAlpmUi1TFNDGW-NdusISRrS0lIUueimXwtAMefntX5Ws7QGxRKr2xcBnGlteih456aRNd4Vgfo1QSX6BYnDFNl0jzzkavaqBGnZ071pFqX61oRiUc4U4OYOFQdzvQm3'
 DATES = [('2027-05-31', '2027-06-06', '31 May – 6 June'), ('2027-07-26', '2027-08-01', '26 July – 1 August'), ('2027-08-30', '2027-09-05', '30 August – 5 September')]
 NAV = [('retreats.html', 'Retreats & booking'), ('testimonials.html', 'Reviews'), ('gallery.html', 'Gallery'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('teacher.html', 'Teacher')]
 
@@ -195,17 +195,34 @@ def dates_html():
     return '<div class="grid">' + ''.join(f'<div class="date-card"><span class="yr">7-day Insight Vipassana · 2027</span><span class="when">{lbl}</span><span class="muted">Hardwick Estate, Oxfordshire · £149 + dāna</span>{book_btn("Book this date")}</div>' for s, e, lbl in DATES) + '</div>'
 
 # ---------- home ----------
+WHY = [
+ ("My mind never switches off", "Rest for a nervous system that is always on.", "I was overworked, burnt out, stressed, depressed, and never switched off properly. I gained a true mindset shift with new habits formed.", "Alex G."),
+ ("I need to put the phone down", "Five days with your phone handed in, and nothing to scroll.", "The peace of being without a phone was amazing and gave me a proper reset.", "Elise S."),
+ ("Life has piled up", "Space to step back and see your life from a different angle.", "A retreat can give you the time you really need to disconnect from everyday life and see everything from a different perspective.", "Dawid K."),
+ ("I've lost touch with myself", "Silence, the river and the old oaks do much of the work.", "Being surrounded by nature was wonderful for nourishing the soul and reconnecting with myself.", "Guest, BookRetreats"),
+ ("I've never meditated", "Every group has first-timers, and the teacher meets you each day.", "Even as a beginner in meditation, the guidance, kindness, and support I received throughout the retreat helped me feel grounded and never lost.", "Estela S."),
+ ("I want something that lasts", "A simple method you can keep using at home.", "I now use the tools every day, and I feel the change immediately.", "Guest, BookRetreats"),
+]
+def why_html():
+    cards = ''.join(f'<article class="why-c"><h3>“{html.escape(t)}”</h3><p class="why-a">{html.escape(a)}</p><blockquote><p>{html.escape(q)}</p><cite>{html.escape(n)}</cite></blockquote></article>' for t, a, q, n in WHY)
+    return f'<div class="why">{cards}</div>'
+WHY_SECTION = '''<section class="band"><div class="wrap"><h2>Why people come to sit in silence</h2>
+<p class="lede" style="margin-bottom:26px">Before they arrive, guests tell us much the same few things. Here is what they wrote afterwards.</p>''' + "{why}" + '''
+<p class="small" style="margin-top:22px">Research agrees: a study of 195 people on a one-week vipassana retreat found less anxiety and depression and more mindfulness, still there a month later. <a href="https://link.springer.com/article/10.1007/s12671-017-0682-5" rel="noopener">Read the study</a>.</p></div></section>'''
+
 def build_home(arts):
     body = f'''<section class="hero">{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], eager=True)}<div class="wrap">
 <h1>Silent vipassana retreats in nature, an hour from London</h1>
-<p>Seven days of noble silence, insight meditation and Dhamma, in a meadow on the River Thames. The teaching is offered for donation.</p>
+<p>Seven days to rest a busy mind, put the phone away and come home to yourself. Noble silence, insight meditation and Dhamma in a meadow on the River Thames, with the teaching offered for donation.</p>
 <div class="ctas">{book_btn()}<a class="btn light" href="/retreats/">See 2027 dates</a></div></div></section>
 
 <section class="band"><div class="wrap"><h2>2027 retreat dates</h2><p class="lede" style="margin-bottom:24px">Three 7-day Insight Vipassana retreats at Hardwick Estate, South Oxfordshire. Each has five full days of silence, and every group includes first-timers.</p>{dates_html()}</div></section>
 
+{WHY_SECTION.replace("{why}", why_html())}
+
 <section class="band mist"><div class="wrap split"><div>
-<h2>A mind-training retreat, not a holiday</h2>
-<p class="lede">Vipassanā means seeing clearly. For a week you follow a simple monastery rhythm, the bell tells you where to be, and you learn to meet thoughts, feelings and sensations as they are.</p>
+<h2>Rest for a mind that never switches off</h2>
+<p class="lede">Vipassanā means seeing clearly. For a week the bell keeps time, your phone stays put away, and you learn to meet thoughts, feelings and sensations without being swept along by them. Nothing outside has to change; you learn a kinder way of holding what is there.</p>
 <ul class="ticks"><li>Sitting and walking meditation in the Mahasi Sayadaw noting tradition</li><li>Daily yoga to prepare the body for sitting</li><li>Dhamma talks and personal interviews with the teacher</li><li>Plant-based Ayurvedic meals, much of it grown on the estate</li><li>Wild swimming in the Thames and a riverside sauna</li></ul>
 <p style="margin-top:20px"><a href="/articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat? →</a></p></div>
 {img(SMILE, ALT[SMILE], sizes="(max-width:820px) 100vw, 600px")}</div></section>
@@ -229,7 +246,7 @@ def build_home(arts):
 <p style="margin-top:22px"><a href="/articles/">All articles →</a></p></div></section>
 
 <section class="band mist"><div class="wrap" style="max-width:860px"><h2>Questions people ask</h2>{faq_html(FAQ)}</div></section>
-<section class="band"><div class="wrap cta-box" style="margin:0 auto;max-width:1100px"><p>Seven days. Five of silence. One meadow by the river.</p>{book_btn()}</div></section>'''
+<section class="band"><div class="wrap cta-box" style="margin:0 auto;max-width:1100px"><p>Come carrying the noise of life. Leave a little quieter, with a practice to take home.</p>{book_btn()}</div></section>'''
     ld = [FAQ_LD, {"@context": "https://schema.org", "@type": "WebSite", "name": "Vipassana Retreat UK", "url": DOMAIN + "/"},
           ORG | {"@context": "https://schema.org", "sameAs": ["https://sadhama.com", "https://www.instagram.com/sadhamayoga/", PROFILE]}] + [event_ld(*d) for d in DATES]
     page('index.html', 'Vipassana Retreat UK: Silent Meditation Retreats near London 2027', 'Silent 7-day vipassana meditation retreats in nature on the River Thames, Oxfordshire, 40 minutes from London. 2027 dates, teaching offered for donation. Beginners welcome.', body, '', 'oak-marquee-dawn', ld)
@@ -259,10 +276,10 @@ def build_retreats():
 <nav class="secnav scroll" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#included">What's included</a><a href="#program">Program</a><a href="#food">Food</a><a href="#stay">Accommodation</a><a href="#teachers">Teachers</a><a href="#reviews">Reviews</a><a href="#location">Location</a><a href="#faq">FAQ</a></div></nav>
 <div class="wrap listing"><div class="main">
 
-<section id="overview" class="sec"><h2>Find inner peace in seven days</h2>
+<section id="overview" class="sec"><h2>A week to rest, see clearly and come home to yourself</h2>
 <p class="lede">An ancient method of meditation, pristinely simple in principle and profoundly transformative in application. Live in silence by the Thames, switch off your phone, eat nourishing plant-based food, and learn to see your mind clearly.</p>
 <div class="hl"><div><b>Five days of silence</b><span>The rare peace of total quiet, with personal teacher interviews.</span></div><div><b>Authentic method</b><span>Mahasi Sayadaw noting, as practised in the monasteries of Burma and Thailand.</span></div><div><b>Yoga every morning</b><span>Prepares the body so you can sit with less pain.</span></div><div><b>Wild nature</b><span>Meadow, ancient oaks, river swimming and a riverside sauna.</span></div><div><b>Ayurvedic food</b><span>Organic, plant-based, much of it grown on the estate.</span></div><div><b>Offered for dāna</b><span>£149 covers food and camping; give what you wish for the teaching.</span></div></div>
-<h3>Who this retreat is for</h3><ul class="ticks"><li><b>All levels:</b> complete beginners and experienced meditators. Every group has first-timers.</li><li>Anyone who needs a real pause: stress, anxiety, burnout, a big life change, or simply curiosity.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
+<h3>Who this retreat is for</h3><ul class="ticks"><li><b>If your mind never switches off:</b> burnout, stress, worry, or a full head you can't put down.</li><li><b>If you're at a turning point:</b> a big birthday, a loss, a decision, a new chapter.</li><li><b>If you need a break from screens:</b> five days with your phone handed in.</li><li><b>All levels:</b> complete beginners and experienced meditators. Every group has first-timers.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
 <h3>What you may take home</h3><ul class="ticks"><li>A calmer, clearer mind and better concentration</li><li>Less reactivity to stress, worry and difficult emotions</li><li>The skill of stepping back from thoughts instead of drowning in them</li><li>A daily practice you can keep at home</li><li>A deep rest for the nervous system, and a full digital detox</li></ul></section>
 
 <section id="included" class="sec"><h2>What's included</h2><div class="grid two" style="align-items:start"><ul class="ticks">

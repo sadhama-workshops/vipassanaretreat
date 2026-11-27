@@ -177,3 +177,11 @@ pre,.scroll{overflow-x:auto}
 .nav a{padding:10px 10px}
 @media(min-width:981px){body:has(.bookbox) .float-book{display:none}}
 .nl-msg:empty{display:none}
+/* why people come */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.why-c{background:light-dark(#fff,#16261f);border:1px solid light-dark(#e3ddd0,#2b3d34);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column}
+.why-c h3{font-family:Newsreader,Georgia,serif;font-size:1.35rem;font-weight:600;margin:0 0 6px;line-height:1.25}
+.why-a{margin:0 0 14px;opacity:.85}
+.why-c blockquote{margin:auto 0 0;padding:12px 0 0;border-top:1px solid light-dark(#ece6da,#2b3d34);font-style:italic}
+.why-c blockquote p{margin:0 0 6px}
+.why-c cite{font-style:normal;font-size:.85rem;opacity:.75}
