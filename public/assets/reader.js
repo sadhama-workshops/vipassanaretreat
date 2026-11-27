@@ -62,15 +62,43 @@
   chapterSel.addEventListener('change', () => openChunk(chapterSel.value));
 
   // ---------- listen ----------
-  const voices = () => (tts ? tts.getVoices() : []).filter(v => /^en/i.test(v.lang));
+  const ACC = {'en-GB':'British','en-US':'American','en-AU':'Australian','en-IE':'Irish','en-IN':'Indian','en-ZA':'South African','en-NZ':'New Zealand','en-CA':'Canadian','en-SG':'Singaporean'};
+  const quality = v => {
+    const n = v.name;
+    let q = 0;
+    if (/natural|neural|premium|enhanced|wavenet|studio|journey/i.test(n)) q += 6;
+    if (/online/i.test(n)) q += 3;
+    if (/siri/i.test(n)) q += 4;
+    if (/^Google/i.test(n)) q += 3;
+    if (/Daniel|Serena|Kate|Arthur|Martha|Sonia|Ryan|Libby|Maisie|Thomas|Stephanie|Jenny|Aria|Guy|Ava|Andrew|Emma|Brian/i.test(n)) q += 2;
+    if (/espeak|robot|Fred|Albert|Bad News|Bells|Boing|Bubbles|Cellos|Jester|Organ|Trinoids|Whisper|Wobble|Zarvox|Junior|Ralph|Superstar|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley/i.test(n)) q -= 10;
+    if (v.localService === false) q += 1;
+    return q;
+  };
+  const voices = () => (tts ? tts.getVoices() : []).filter(v => /^en/i.test(v.lang) && quality(v) > -5)
+      .sort((a, b) => quality(b) - quality(a) || a.name.localeCompare(b.name));
+  const label = v => {
+    const nm = v.name.replace(/^(Microsoft|Google|Apple)\s+/i, '').replace(/\s*\(.*?\)\s*/g, ' ').replace(/ - English.*$/i, '').replace(/Online|Natural/gi, '').trim();
+    return nm + (quality(v) >= 6 ? ' ★ natural' : '');
+  };
   const fillVoices = () => {
     const vs = voices(), saved = store.get('rv-voice');
-    voiceSel.innerHTML = vs.map(v => `<option value="${esc(v.name)}">${esc(v.name.replace(/Microsoft |Google /, ''))} (${esc(v.lang)})</option>`).join('') || '<option>Default voice</option>';
-    const pref = vs.find(v => v.name === saved) || vs.find(v => /en-GB/i.test(v.lang)) || vs[0];
+    if (!vs.length) { voiceSel.innerHTML = '<option>Default voice</option>'; return; }
+    const groups = {};
+    vs.forEach(v => { const k = ACC[v.lang.replace('_', '-')] || 'Other English'; (groups[k] = groups[k] || []).push(v); });
+    const order = ['British', 'Irish', 'American', 'Australian', 'New Zealand', 'Canadian', 'Indian', 'South African', 'Singaporean', 'Other English'];
+    voiceSel.innerHTML = order.filter(k => groups[k]).map(k => `<optgroup label="${k}">` + groups[k].map(v => `<option value="${esc(v.name)}">${esc(label(v))}</option>`).join('') + '</optgroup>').join('');
+    const pref = vs.find(v => v.name === saved) || vs.find(v => /en-GB/i.test(v.lang) && quality(v) >= 3) || vs[0];
     if (pref) voiceSel.value = pref.name;
+    const best = Math.max(...vs.map(quality));
+    const note = $('tts-note');
+    if (note) note.innerHTML = best >= 6 ? 'Voices marked ★ sound the most natural.' :
+      'For more natural voices: on a Mac or iPhone, add a “Premium” or “Enhanced” English voice in Settings → Accessibility → Spoken Content; in Microsoft Edge, the “Natural” voices appear here automatically; on Android, install Google Speech Services.';
   };
-  if (tts) { fillVoices(); tts.onvoiceschanged = fillVoices; }
+  if (tts) { fillVoices(); tts.onvoiceschanged = fillVoices; setTimeout(fillVoices, 800); }
   else { playBtn.disabled = true; stopBtn.disabled = true; $('tts-note').textContent = 'Listening is not supported in this browser.'; }
+  const sample = $('sample');
+  if (sample) sample.onclick = () => { if (!tts) return; tts.cancel(); const u = new SpeechSynthesisUtterance('Just as the ocean has one taste, the taste of salt, so this teaching has one taste, the taste of freedom.'); const v = voices().find(x => x.name === voiceSel.value); if (v) { u.voice = v; u.lang = v.lang; } u.rate = parseFloat(rateSel.value) * 0.95; tts.speak(u); };
   voiceSel.onchange = () => store.set('rv-voice', voiceSel.value);
 
   const spoken = el => (el.innerText || el.textContent).replace(/\s+/g, ' ').trim();

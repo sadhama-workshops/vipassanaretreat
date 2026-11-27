@@ -6,9 +6,9 @@ image: fb-golden-sunrise
 date: 2026-11-27
 ---
 
-On the last morning of every retreat, we talk about going home. You've done it. Feels good, doesn't it? Not pushed into the corner by wants and don't-wants. Just the middle.
+After a retreat, most people feel it: a lightness, a quiet steadiness, no longer pushed around by every want and don't-want. Just the middle way.
 
-Now, how do you keep it?
+The question is how to keep it when you get home.
 
 ## It works like brushing your teeth
 
@@ -29,7 +29,7 @@ Make it non-negotiable. You don't decide every day, "Do I do it today? What time
 
 ## Two good times
 
-**Early morning.** It's 5am. Do you have time? Everyone has time at 5am. Some at 6. Put it where you have time.
+**Early morning.** Before the house wakes and the phone starts asking for you, there is always a little time. For some people it's 5am, for others 6. Put it where you truly have time.
 
 **Before sleep.** The Buddha described the drawbacks of falling asleep "unmindful and unaware": you sleep badly and wake miserably, and you have bad dreams. Fall asleep mindful, and you sleep at ease and wake happily ([AN 5.210](/library/read.html#anguttara-nikaya-an5)). Tidy up the mind at the end of the day. *Rising, falling,* until you're gone.
 
@@ -61,6 +61,6 @@ For lay people, the Buddha gave three: virtuous behaviour (the five precepts), g
 
 Most people get their real breakthrough on their second or third retreat. Every year I sit a month-long or 21-day retreat myself. A retreat once or twice a year recharges what you build every day at home.
 
-See you by the river. [2027 dates are here.](/retreats/)
+We'd love to see you by the river again. [The 2027 dates are here.](/retreats/)
 
-Have a wonderful practice. Happy and well.
+May your practice be steady, and may you be happy and well.

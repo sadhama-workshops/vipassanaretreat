@@ -6,9 +6,9 @@ image: fb-yoga-stretch
 date: 2026-11-27
 ---
 
-*"A big distraction for me is the back pain from sitting in this posture. Is there anything you can do about that?"*
+*"My biggest distraction is back pain from sitting. Is there anything I can do about it?"*
 
-I hear this on every retreat. Pain and the wandering mind are the two big obstacles at the start. The good news: pain you can work with. And it becomes one of your best teachers.
+Someone asks me this on every retreat. Pain and the wandering mind are the two big obstacles at the start. The good news: pain you can work with. And it becomes one of your best teachers.
 
 First, the practical side. Then, the meditation side.
 
@@ -20,9 +20,10 @@ You don't need to suffer for the sake of suffering.
 - **Try different seats.** Cross-legged, kneeling on a bench, or on a chair with feet flat on the ground. All are fine.
 - **Stack your spine.** Imagine the cobra: stretched out on the ground, the eagle can catch it. Coiled and upright, nobody can touch it. Upright, but not rigid.
 - **Move between sits.** At our retreats we alternate 45 minutes of sitting with 45 minutes of walking, and do yoga every morning. Yoga asana was designed for exactly this, to prepare the body for meditation.
+- **Let the body be cared for.** A warm sauna in the evening break and a massage with one of our on-site therapists can ease a stiff back wonderfully.
 - **If it's an injury or chronic pain,** change position, use a chair, and tell the teacher. That's wisdom, not weakness.
 
-Even my legs go numb sometimes. Teachers too.
+Even after many years, my own legs still go numb sometimes.
 
 ## 2. Pain is a concept
 
@@ -44,7 +45,7 @@ Often, most of the suffering is in the reaction, not in the knee. The mind as a 
 
 ## 4. Two strategies
 
-**Stay with it.** For non-chronic pain, you can make it your main object for a while. Go right into it, note it precisely, moment by moment. Every retreat, someone comes to me and says, "Whoa, I did this, and poof, it was gone."
+**Stay with it.** For non-chronic pain, you can make it your main object for a while. Go right into it, note it precisely, moment by moment. On almost every retreat, someone tells me in their interview that they did exactly this, and the pain simply dissolved.
 
 **Keep it secondary.** Or, keep rising and falling as your main object, and include the sensation: *rising, falling, heat. Rising, falling, pressure.* When it's no longer pulling you, let it go.
 

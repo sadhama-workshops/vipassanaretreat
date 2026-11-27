@@ -198,3 +198,6 @@ blockquote.pull{margin:18px 0;padding:4px 0 4px 18px;border-left:3px solid #e874
 blockquote.pull p{margin:0 0 6px}blockquote.pull cite{font-family:"Instrument Sans",sans-serif;font-size:.85rem;font-style:normal;opacity:.75}
 .band.oak .quote{color:var(--ink)}.band.oak a.btn.light{color:#18302a}
 .band.oak .muted{color:inherit;opacity:.72}
+.inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:26px}
+.inc>div{background:light-dark(#fff,#16261f);border:1px solid light-dark(#e3ddd0,#2b3d34);border-radius:14px;padding:22px 24px}
+.inc h3{margin-top:0}

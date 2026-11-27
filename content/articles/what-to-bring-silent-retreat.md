@@ -14,7 +14,7 @@ This list is for our retreats at Hardwick, where you camp, but most of it works 
 
 - **Tent**, unless you rent one at booking. Tents are single occupancy, for silence and for depth.
 - **Warm sleeping bag**, rated for cold nights, plus a **sleeping mat** or camp bed
-- **Pillow** and an extra blanket
+- **Pillow**, an extra blanket and a **hot water bottle**. Nights by the river can be chilly even in summer.
 - **Earplugs and an eye mask.** Birds start early in summer.
 - **Head torch**
 
@@ -29,10 +29,10 @@ If you rent a pre-erected tent or a bell tent with a framed bed, check what bedd
 ## Clothes
 
 - **Loose, quiet clothes** in layers: leggings or soft trousers, long sleeves, a fleece, a down jacket
-- **Hat and fingerless gloves** for early sits
+- **Hat and fingerless gloves** for early sits, and more warm socks than you think you need
 - **Waterproof jacket** and wellies or waterproof shoes for wet grass
 - **Slip-on shoes or sandals.** You take shoes off many times a day.
-- **Swimwear and towel** for the river and the sauna
+- **Swimwear, a towel and a dry robe** for the river and the wood-fired sauna
 
 Avoid clothes with loud slogans or bright prints. Not a rule, just less to look at.
 
@@ -40,12 +40,13 @@ Avoid clothes with loud slogans or bright prints. Not a rule, just less to look 
 
 - **Your own cutlery, plate, bowl and cup.** Bring them; it saves waste.
 - **A water bottle** and a flask for tea
-- Food is provided: three plant-based Ayurvedic meals a day. Try not to bring a stash of snacks for the tent. Notice the craving instead. *Wanting, wanting.* It's good practice.
+- Food is provided: a plant-based Ayurvedic breakfast and lunch, and a warming drink in the evening, following the monastic tradition. Try not to bring a stash of snacks for the tent. Notice the craving instead. *Wanting, wanting.* It's good practice.
 
 ## Wash and health
 
 - Toiletries (unscented if possible), a quick-dry towel
 - Any medicines you need. Tell us about health conditions when you book.
+- A little **cash** if you'd like a massage or treatment with one of our on-site therapists, since your phone will be switched off.
 - Sun cream and insect repellent
 
 ## What to leave at home
@@ -62,6 +63,6 @@ People worry about this more than anything. Then, by day three, they forget the 
 
 ## One more thing to bring
 
-A beginner's mind. Some of you have done many retreats, some none. Either way, try not to come with a plan for what you're going to achieve. Come with an empty bowl.
+A beginner's mind. Whether this is your first retreat or your tenth, try not to arrive with a plan for what you'll achieve. Come with an empty bowl, and let the week fill it.
 
 Ready? See [the 2027 dates and booking](/retreats/), or read [what to expect on your first silent retreat](/articles/first-silent-retreat-what-to-expect.html).

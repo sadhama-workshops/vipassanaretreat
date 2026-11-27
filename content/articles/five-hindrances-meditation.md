@@ -24,13 +24,13 @@ These are the five hindrances. When the mind is full of them, you can't see clea
 
 *Kāmacchanda.* Wanting something pleasant. Food, comfort, a person, a memory, a plan for after the retreat.
 
-The mind colours everything with wanting. *Oh, too little cake. Oh, too much cake. Unpleasant again.* Sensual pleasure never quite satisfies.
+The mind colours everything with wanting. Too little cake, then too much cake. Sensual pleasure never quite satisfies.
 
 **Practice:** note it precisely. *Wanting, wanting.* *Liking, liking.* Watch where you feel it in the body. See that it arises, and it passes, even if you don't feed it.
 
 ## 2. Ill will (the boiling water)
 
-*Byāpāda.* Aversion. Not liking. Irritation at the person who breathes loudly next to you. Pushing away the cold, the pain, the schedule.
+*Byāpāda.* Aversion. Not liking. Irritation at the person breathing loudly beside you. Pushing away the cold, the pain, the schedule.
 
 Holding resentment is like holding a hot coal to throw at someone. It burns you first.
 
@@ -40,11 +40,11 @@ Holding resentment is like holding a hot coal to throw at someone. It burns you 
 
 *Thīna-middha.* Heaviness, dullness, nodding off. Very common after lunch.
 
-**Practice:** stir up energy. Do longer and more energetic walking meditation. Sit with eyes open. Stand up for a while on your mat. Add more objects to the noting: *rising, falling, sitting, touching.* Note *drowsy, drowsy* with real interest. In Thailand I used to splash water on my face and neck before the afternoon sit.
+**Practice:** stir up energy. Do longer and more energetic walking meditation. Sit with eyes open. Stand up for a while on your mat. Add more objects to the noting: *rising, falling, sitting, touching.* Note *drowsy, drowsy* with real interest. On my own long retreats in Thailand, I would splash cool water on my face and neck before the afternoon sit.
 
 ## 4. Restlessness and worry (the wind)
 
-*Uddhacca-kukkucca.* The mind going *doo-doo-doo-doo*. Planning, replaying, regretting. Can't sit still.
+*Uddhacca-kukkucca.* The mind racing ahead: planning, replaying, regretting. The body can't sit still.
 
 **Practice:** note *restless, restless*, or *planning*, *remembering*. Don't fight it. Come back to the body again and again. Slow, precise walking meditation helps a lot: *lifting, moving, placing.* Restlessness has a lot to do with the past too, things we did that we're not proud of. That's why the precepts matter. Virtue is your security.
 

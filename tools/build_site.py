@@ -213,26 +213,35 @@ WHY_SECTION = '''<section class="band"><div class="wrap"><h2>Why people come to 
 def build_home(arts):
     body = f'''<section class="hero">{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], eager=True)}<div class="wrap">
 <h1>Silent vipassana retreats in nature, an hour from London</h1>
-<p>Seven days to rest a busy mind, put the phone away and discover the peace of a quiet, clear mind. Noble silence, insight meditation and Dhamma in a meadow on the River Thames, with the teaching offered for donation.</p>
+<p>Seven days to rest a busy mind, put the phone away and discover the peace of a quiet, clear mind. Noble silence, insight meditation and gentle care in a meadow on the River Thames, with the teaching offered for donation.</p>
 <div class="ctas">{book_btn()}<a class="btn light" href="/retreats/">See 2027 dates</a></div></div></section>
 
-<section class="band"><div class="wrap"><h2>2027 retreat dates</h2><p class="lede" style="margin-bottom:24px">Three 7-day Insight Vipassana retreats at Hardwick Estate, South Oxfordshire. Each has five full days of silence, and every group includes first-timers.</p>{dates_html()}</div></section>
-
-{WHY_SECTION.replace("{why}", why_html())}
-<section class="band mist"><div class="wrap split"><div>
-<h2>Never meditated? That can be an advantage</h2>
-<p class="lede">Every group has first-timers, and they often do very well. With a clean slate there is nothing to unlearn and no other techniques to mix in. You simply do what you are shown.</p>
-<blockquote class="pull"><p>“Sometimes even the beginners’ clean slate has its benefits. When you don’t know other techniques, you just do what you’re told, and it’s easier to go.”</p><cite>Dmitry, from a retreat talk</cite></blockquote>
-<ul class="ticks"><li>You learn the authentic Mahasi Sayadaw method from zero, adding one step each day</li><li>An experienced teacher guides every sitting and gives a Dhamma talk each evening</li><li>Personal interviews with the teacher, to ask questions and clear up anything unclear</li><li>This is how vipassana has always been passed on in the monasteries of Burma and Thailand</li></ul>
-<p style="margin-top:18px"><a href="/articles/vipassana-for-beginners.html">Vipassana for beginners →</a></p></div>
-{img("fb-interview", ALT["fb-interview"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+<section class="band"><div class="wrap"><h2>2027 retreat dates</h2><p class="lede" style="margin-bottom:24px">Three 7-day Insight Vipassana retreats at Hardwick Estate, South Oxfordshire, in early summer, high summer and the turning of the season. Each has five full days of silence, and every group welcomes first-timers.</p>{dates_html()}</div></section>
 
 <section class="band mist"><div class="wrap split"><div>
 <h2>Rest for a mind that never switches off</h2>
-<p class="lede">Vipassanā means seeing clearly. For a week the bell keeps time, your phone stays put away, and you learn to meet thoughts, feelings and sensations without being swept along by them. Nothing outside has to change; you learn a kinder way of holding what is there.</p>
-<ul class="ticks"><li>Sitting and walking meditation in the Mahasi Sayadaw noting tradition</li><li>Daily yoga to prepare the body for sitting</li><li>Dhamma talks and personal interviews with the teacher</li><li>Plant-based Ayurvedic meals, much of it grown on the estate</li><li>Wild swimming in the Thames and a riverside sauna</li></ul>
+<p class="lede">Vipassanā means seeing clearly. For one week the bell keeps time, your phone rests in a drawer, and you learn to meet thoughts, feelings and sensations without being swept along by them. Nothing in your life has to change first. You simply learn a kinder, clearer way of holding what is already there.</p>
+<ul class="ticks"><li>Sitting and walking meditation in the Mahasi Sayadaw noting tradition</li><li>Gentle yoga each morning, so the body can sit with ease</li><li>Evening Dhamma talks and personal interviews with the teacher</li><li>Five full days of noble silence, in a marquee beneath an old oak</li></ul>
 <p style="margin-top:20px"><a href="/articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat? →</a></p></div>
 {img(SMILE, ALT[SMILE], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+
+<section class="band"><div class="wrap split">{img("sauna-dmitry", ALT["sauna-dmitry"], sizes="(max-width:820px) 100vw, 560px").replace("<img ", "<img style=\"aspect-ratio:4/5\" ")}<div>
+<h2>Serious practice, gently held</h2>
+<p class="lede">A silent retreat asks a lot of you, so we make sure everything else is taken care of. This softness is what guests remember most about a Sadhama vipassana.</p>
+<ul class="ticks"><li><b>Nourishing food.</b> Karen's Ayurvedic plant-based cooking, much of it grown organically on the estate. Guests call it “another level”.</li><li><b>A wood-fired sauna by the river.</b> Warm your bones after a long day of sitting, then cool off with a dip in the Thames.</li><li><b>Caring hands on site.</b> Lomi lomi massage, Thai yoga massage, reiki and pravilo with our trusted therapists, for backs and hips that have been sitting all week.</li><li><b>The land itself.</b> Dawn mist on the river, swallows over the meadow, the ancient oaks of Hardwick. Nature does much of the work.</li></ul>
+<p style="margin-top:18px"><a href="/retreats/#care">The wellbeing side of the retreat →</a></p></div></div></section>
+
+<section class="band mist"><div class="wrap split"><div>
+<h2>Never meditated? That can be an advantage</h2>
+<p class="lede">Every group has first-timers, and they often do very well. With a clean slate there is nothing to unlearn and no other techniques to mix in. You simply follow what you are shown.</p>
+<blockquote class="pull"><p>“Sometimes even the beginners’ clean slate has its benefits. When you don’t know other techniques, you just do what you’re told, and it’s easier to go.”</p><cite>Dmitry, from a retreat talk</cite></blockquote>
+<ul class="ticks"><li>You learn the authentic Mahasi Sayadaw method from the very beginning, one step each day</li><li>An experienced teacher guides every sitting and gives a Dhamma talk each evening</li><li>Personal interviews with the teacher, to ask questions and clear up anything unclear</li><li>This is how vipassana has always been passed on in the monasteries of Burma and Thailand</li></ul>
+<p style="margin-top:18px"><a href="/articles/vipassana-for-beginners.html">Vipassana for beginners →</a></p></div>
+{img("fb-interview", ALT["fb-interview"], sizes="(max-width:820px) 100vw, 600px")}</div></section>
+
+<section class="band"><div class="wrap"><h2>What's included</h2><p class="lede" style="margin-bottom:22px">One simple price for food and camping. The teaching itself is offered for dāna, a donation you give at the end, as vipassana has been offered for 2,500 years.</p>
+<div class="inc"><div><h3>Included in £149</h3><ul class="ticks"><li>Six nights on the riverside campsite</li><li>All meditation sessions, instructions and Dhamma talks</li><li>Personal interviews with the teacher</li><li>Morning yoga and breathwork</li><li>Ayurvedic plant-based breakfast and lunch, a warming evening drink, herbal teas</li><li>The riverside sauna and wild swimming in the Thames</li><li>Hot showers, toilets and parking</li></ul></div>
+<div><h3>Optional extras</h3><ul class="ticks"><li>A pre-erected tent or a canvas bell tent, from essential comfort to deluxe glamping with a proper bed</li><li>Massage and bodywork with our on-site therapists, booked on arrival</li><li>Dāna for the teaching: whatever you feel moved to give</li></ul><p style="margin-top:18px">{book_btn("See dates and book")}</p></div></div></div></section>
 
 <section class="band oak"><div class="wrap"><h2>From people who have sat with us</h2>
 <div class="stats" style="margin-bottom:28px"><div><b>4.9</b><span>average from 167 WeTravel reviews</span></div><div><b>35+</b><span>retreats run by Sadhama</span></div><div><b>1,700+</b><span>participants</span></div></div>
@@ -299,26 +308,32 @@ def build_retreats():
     radio = ''.join(f'<label class="pick"><input type="radio" name="d" {"checked" if i == 0 else ""}><span><b>{lbl}</b> 2027</span></label>' for i, (s, e, lbl) in enumerate(DATES))
     body = f'''<section class="page-hero">{img("marquee-dawn", ALT["marquee-dawn"], eager=True)}<div class="wrap"><h1>7-Day Insight Vipassana Silent Retreat in Nature, UK</h1>
 <p>Hardwick Estate on the River Thames, Oxfordshire · 40 minutes from London · Five full days of noble silence · Teaching offered for dāna</p>{RATINGS}</div></section>
-<nav class="secnav scroll" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#included">What's included</a><a href="#program">Program</a><a href="#food">Food</a><a href="#stay">Accommodation</a><a href="#teachers">Teachers</a><a href="#reviews">Reviews</a><a href="#location">Location</a><a href="#faq">FAQ</a></div></nav>
+<nav class="secnav scroll" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#included">What's included</a><a href="#program">Program</a><a href="#food">Food</a><a href="#care">Sauna & therapies</a><a href="#stay">Accommodation</a><a href="#teachers">Teachers</a><a href="#reviews">Reviews</a><a href="#location">Location</a><a href="#faq">FAQ</a></div></nav>
 <div class="wrap listing"><div class="main">
 
 <section id="overview" class="sec"><h2>A week to rest, see clearly and find real peace of mind</h2>
-<p class="lede">An ancient method of meditation, pristinely simple in principle and profoundly transformative in application. Live in silence by the Thames, switch off your phone, eat nourishing plant-based food, and learn to see your mind clearly.</p>
+<p class="lede">An ancient method, simple in principle and profound in practice. For one week you live in silence by the Thames, your phone switched off, your meals cooked for you, your tired body cared for. All that is left to do is the one thing we rarely make time for: to sit, to walk, and to see the mind clearly.</p>
 <div class="hl"><div><b>Five days of silence</b><span>The rare peace of total quiet, with personal teacher interviews.</span></div><div><b>Authentic method</b><span>Mahasi Sayadaw noting, as practised in the monasteries of Burma and Thailand.</span></div><div><b>Yoga every morning</b><span>Prepares the body so you can sit with less pain.</span></div><div><b>Wild nature</b><span>Meadow, ancient oaks, river swimming and a riverside sauna.</span></div><div><b>Ayurvedic food</b><span>Organic, plant-based, much of it grown on the estate.</span></div><div><b>Offered for dāna</b><span>£149 covers food and camping; give what you wish for the teaching.</span></div></div>
 <h3>Who this retreat is for</h3><ul class="ticks"><li><b>If your mind never switches off:</b> burnout, stress, worry, or a full head you can't put down.</li><li><b>If you're at a turning point:</b> a big birthday, a loss, a decision, a new chapter.</li><li><b>If you need a break from screens:</b> five days with your phone handed in.</li><li><b>Complete beginners:</b> a clean slate is an advantage. You learn the authentic method step by step, with daily guidance and personal interviews. Experienced meditators are welcome too.</li><li>People who've done a Goenka 10-day course and want to try the noting method, with a live teacher.</li><li>Adults 18+. If you have a mental health condition, please tell us when you book.</li></ul>
 <h3>What you may take home</h3><ul class="ticks"><li>A calmer, clearer mind and better concentration</li><li>Less reactivity to stress, worry and difficult emotions</li><li>The skill of stepping back from thoughts instead of drowning in them</li><li>A daily practice you can keep at home</li><li>A deep rest for the nervous system, and a full digital detox</li></ul></section>
 
 <section id="included" class="sec"><h2>What's included</h2><div class="grid two" style="align-items:start"><ul class="ticks">
 <li>6 nights on the riverside campsite (ground for your own tent)</li><li>All sitting and walking meditations</li><li>Daily morning yoga</li><li>Dhamma talks and personal teacher interviews</li><li>Ayurvedic plant-based meals and teas</li><li>Riverside sauna on day one and day seven</li><li>Wild swimming in the Thames</li><li>Hot showers, toilets and parking</li><li>Support before and after the retreat</li></ul>
-<div><h3 style="margin-top:0">Not included</h3><ul class="ticks muted"><li>Travel to Hardwick</li><li>Tent hire (add at checkout), bedding</li><li>Cutlery and crockery: bring your own</li><li>Yoga mat and sitting blanket (a few to borrow)</li><li>Massage and bodywork, offered on site at a reduced rate</li></ul><p class="small"><a href="/articles/what-to-bring-silent-retreat.html">Full packing list →</a></p></div></div></section>
+<div><h3 style="margin-top:0">Not included</h3><ul class="ticks muted"><li>Travel to Hardwick</li><li>Tent hire (add at checkout), bedding</li><li>Cutlery and crockery: bring your own</li><li>Yoga mat and sitting blanket (a few to borrow)</li><li>Massage and bodywork with our on-site therapists (bring cash)</li></ul><p class="small"><a href="/articles/what-to-bring-silent-retreat.html">Full packing list →</a></p></div></div></section>
 
 <section id="program" class="sec"><h2>Program</h2>
 <ol class="days"><li><b>Day 1</b> Arrive from the afternoon, settle into your tent, orientation and first talk. Noble silence begins in the evening.</li><li><b>Days 2–6</b> Five days of silent practice: sitting and walking meditation, yoga, Dhamma talks, interviews. One new meditation object each day.</li><li><b>Day 7</b> Closing talk on taking the practice home, silence ends, sharing circle, sauna and departure.</li></ol>
 <h3>A day on retreat</h3><p class="muted">A bell instead of a clock. The schedule replicates monastery life and is designed for continuity of practice.</p>{timetable_html()}</section>
 
-<section id="food" class="sec split">{img("fb-meal-laughter", ALT["fb-meal-laughter"], sizes="(max-width:820px) 100vw, 480px")}<div><h2>Food</h2><p>Fresh, organic, locally grown plant-based meals, prepared by Karen and her crew on the Ayurvedic principle of food as medicine. Much of the fruit and veg comes from Tolhurst Organic, a stock-free farm on the estate. Sattvic ingredients that support your meditation and leave you nourished, light and strong.</p><p class="muted">Tell us about allergies and intolerances when you book.</p></div></section>
+<section id="food" class="sec split">{img("fb-meal-laughter", ALT["fb-meal-laughter"], sizes="(max-width:820px) 100vw, 480px")}<div><h2>Food</h2><p>Fresh, organic, plant-based meals, cooked by Karen and her kitchen crew on the Ayurvedic principle of food as medicine. Much of the fruit and vegetables come from Tolhurst Organic, the stock-free farm on the estate, often picked the same morning. Expect warming dals and seasonal stews, bright salads, golden porridge at dawn and herbal teas through the day: sattvic food that supports your meditation and leaves you nourished, light and steady.</p><p>Following the tradition, breakfast and lunch are the main meals, and the evening brings a warming drink rather than a full supper, which keeps the mind clear for the evening sit.</p><p class="muted">Tell us about allergies and intolerances when you book.</p></div></section>
 
-<section id="stay" class="sec"><h2>Accommodation</h2><p>You stay in the secluded riverside campsite, with hot showers, a riverside sauna, composting toilets and fresh running water. Tents are single occupancy, so each person has their own space for silence.</p>
+<section id="care" class="sec split">{img("sauna-dmitry", ALT["sauna-dmitry"], sizes="(max-width:820px) 100vw, 480px").replace("<img ", "<img style=\"aspect-ratio:4/5\" ")}<div><h2>Sauna, river and caring hands</h2>
+<p>Long days of sitting ask a lot of the body, so we built in softness. Our hand-built wood-fired sauna stands close to the river: warm your bones, then step down for a cool dip in the Thames, or simply sit outside wrapped in a towel and listen to the water.</p>
+<p>Our trusted therapists stay on site through the retreat, and treatments are held in silence:</p>
+<ul class="ticks"><li><b>Lomi lomi and deep tissue massage</b> with Greta, long flowing strokes that ease the back and shoulders</li><li><b>Thai yoga massage</b> with Bara, gentle stretching and pressure along the energy lines</li><li><b>Reiki</b> with Lara, for calming and centring when the practice feels intense</li><li><b>Pravilo</b> with Tibi, suspension stretching that decompresses a stiff spine</li></ul>
+<p class="muted small">About £35 for 30 minutes or £70 for an hour, booked when you arrive and paid to the therapist. Bring cash, as your phone will be switched off.</p></div></section>
+
+<section id="stay" class="sec"><h2>Accommodation</h2><p>You stay in our secluded riverside campsite, with hot showers, composting toilets and fresh running water, a short walk from the meditation marquee. Tents are single occupancy, so everyone has their own space for silence. Nights by the river can be cool even in summer, so bring a hot water bottle and more warm socks than you think you need.</p>
 <div class="pk"><div><b>Your own tent, campervan or caravan</b><span>Included in the £149</span></div><div><b>Private pre-erected tent</b><span>Small or medium, add at checkout</span></div><div><b>Canvas bell tent · Essential comfort</b><span>Add at checkout</span></div><div><b>Deluxe glamping bell tent</b><span>With a framed bed, add at checkout</span></div></div>
 <p class="small muted">No dogs, please. The retreat is free from alcohol, drugs and intoxicants.</p></section>
 
@@ -378,7 +393,9 @@ def build_testimonials():
 GALLERY = []  # filled at build time from img/gallery-*.jpg plus the core photos
 def build_gallery():
     names = sorted(p.stem for p in (OUT / 'img').glob('*.jpg') if not p.stem.endswith('-sm'))
-    pics = [n for n in names if n.startswith('fb-')] + [n for n in ALT if n in names]
+    skip = {'group-meadow'}  # near-identical to group-hills
+    pics = list(dict.fromkeys([n for n in names if n.startswith('fb-')] + [n for n in ALT if n in names]))
+    pics = [n for n in pics if n not in skip]
     tiles = ''.join(f'<a class="tile" href="img/{n}.jpg" data-i="{i}">{img(n, ALT.get(n, "Insight Vipassana retreat at Hardwick Estate"), sizes="(max-width:600px) 50vw, 300px")}</a>' for i, n in enumerate(pics))
     body = f'''<section class="page-hero">{img("oak-marquee-dawn", ALT["oak-marquee-dawn"], eager=True)}<div class="wrap"><h1>Gallery</h1><p>Dawn mist, the old oak, the marquee in the meadow, and the people who sat with us.</p></div></section>
 <section class="band"><div class="wrap"><div class="gal" id="gal">{tiles}</div></div></section>
@@ -468,11 +485,12 @@ def build_library():
 <h1 id="bookTitle">Dhamma library</h1><p class="muted" id="bookSub"></p>
 <div class="reader"><aside class="toc" aria-label="Contents"><label class="small muted" for="chapter">Chapter</label><select id="chapter"></select><ol id="suttas"></ol></aside>
 <div><div class="tools" role="toolbar" aria-label="Reading tools"><button class="play" id="play" type="button">▶ Listen</button><button id="stop" type="button">■ Stop</button>
-<select id="rate" aria-label="Reading speed"><option value=".85">Slow</option><option value="1" selected>Normal</option><option value="1.15">Faster</option></select>
-<select id="voice" aria-label="Voice"></select><button id="smaller" type="button" aria-label="Smaller text">A−</button><button id="bigger" type="button" aria-label="Larger text">A+</button>
+<select id="rate" aria-label="Reading speed"><option value=".75">Slow</option><option value=".9" selected>Gentle</option><option value="1">Normal</option><option value="1.15">Faster</option></select>
+<select id="voice" aria-label="Voice"></select><button id="sample" type="button" aria-label="Hear this voice">Try voice</button><button id="smaller" type="button" aria-label="Smaller text">A−</button><button id="bigger" type="button" aria-label="Larger text">A+</button>
 <span class="dl" id="dl"></span><span class="status" id="status"></span></div>
+<p class="small muted" id="tts-note" style="margin:6px 0 14px"></p>
 <article class="text" id="text"><p class="muted">Loading…</p></article>
-<p class="muted small" style="margin-top:32px">Translated by Bhikkhu Sujato (SuttaCentral), public domain. <span id="tts-note"></span></p></div></div></div></section>'''
+<p class="muted small" style="margin-top:32px">Translated by Bhikkhu Sujato (SuttaCentral), public domain.</p></div></div></div></section>'''
     page('read.html', 'Read the Suttas Online | Vipassana Retreat UK', 'Read and listen to the Buddha\'s discourses online in Bhikkhu Sujato\'s public-domain translation.', rbody, 'library.html', 'lily-pond-mist', scripts='<script src="assets/reader.js"></script>', extra_head=reader_head)
 
 def build_seo(arts):

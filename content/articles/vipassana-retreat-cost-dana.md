@@ -30,11 +30,11 @@ For you as a participant, you meet the teaching without a consumer expectation. 
 
 ## Generosity is part of the practice
 
-In my talks I often say: there are three main things given to us as lay people. Virtuous behaviour, meditation, and generosity.
+In my talks I often say that the Buddha gave lay people three main practices: virtuous conduct, meditation, and generosity.
 
 Generosity is giving away a chunk of selfishness. "It's mine." And then, a piece of it, given to the whole. It's a beautiful state of mind.
 
-If you're a cheapskate and you don't have much money, you especially need to practise generosity. Sounds contrary, right? However, this is the way. You give with a full heart, something meaningful for you, and it comes back. The universe doesn't know the ratio.
+Even when money is tight, generosity is worth practising, perhaps especially then. It sounds contrary, but the size of the gift matters far less than the heart behind it. A small gift, given fully, carries the same goodness as a large one.
 
 The Buddha spoke about the benefits of giving: a giver is dear to many people, good people seek their company, they get a good name, they don't neglect their duties, and they go to a good place after this life ([AN 5.35](/library/read.html#anguttara-nikaya-an5)).
 

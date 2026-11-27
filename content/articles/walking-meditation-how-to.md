@@ -6,7 +6,7 @@ image: fb-sunset-walk
 date: 2026-11-27
 ---
 
-Not all meditation traditions use walking meditation. Don't think of it as a break, just to stretch your legs. In our retreats, walking is as important as sitting. In fact, most people experience the present moment for the first time during walking, and the first insights often come there.
+Not every meditation tradition uses walking meditation, and it is easy to think of it as a break to stretch your legs. On our retreats, walking is as important as sitting. In fact, most people experience the present moment for the first time during walking, and the first insights often come there.
 
 The Buddha practised it himself. In the places where he spent his rains retreats, there were walking paths. He spoke of five benefits of walking meditation ([AN 5.29](/library/read.html#anguttara-nikaya-an5)): you become fit for travelling, fit for striving in meditation, and healthy; what you eat and drink is properly digested; and the concentration gained while walking lasts long.
 
@@ -49,7 +49,7 @@ Then turn slowly, noting *intending to turn, turning, turning.* Stand again. The
 
 **Do I note rising and falling while walking?** No. Rising and falling is for sitting. In walking, the object is the foot.
 
-**What if my mind wanders?** Stop walking. Note *thinking, thinking*, or *wandering*. Then continue. Like a pebble in your shoe: are you upset you found a pebble? No, it's good. Take it out and start walking again.
+**What if my mind wanders?** Stop walking. Note *thinking, thinking*, or *wandering*, then continue. Think of a pebble in your shoe: you're not upset to find it. You're glad. You take it out and walk on.
 
 **How long?** On retreat, 45 minutes, then 45 minutes sitting. At home, even 10 or 15 minutes before you sit makes your sitting much better.
 
@@ -61,6 +61,6 @@ If you're drowsy, walking is your medicine. Walk a little faster at first, with 
 
 You walk every day anyway. In a queue, on a platform, from the car to the office. Note *left, right*. *Lifting, placing.* Waiting time becomes meditation time.
 
-The world walks fast. You can step out of that rhythm. It's yours to choose.
+The world walks fast. You can step out of that rhythm, one quiet step at a time.
 
 Read about [noting in sitting meditation](/articles/noting-meditation-rising-falling.html) and [the five hindrances](/articles/five-hindrances-meditation.html), or practise with us on a [silent retreat](/retreats/).

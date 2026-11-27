@@ -6,62 +6,64 @@ image: fb-dawn-sit
 date: 2026-11-27
 ---
 
-Some of you have signed up and don't quite know what you've signed up for. I can tell you. It's not a holiday. But it is a holiday from your wants.
+If you have booked your first silent retreat and aren't quite sure what you've signed up for, this is for you. It isn't a holiday. But it is a holiday from wanting things.
 
 Here is how a seven-day silent retreat usually unfolds, from someone who has sat many of them and now guides them.
 
 ## Day 1: Arriving
 
-You arrive, find your tent or your spot, meet the team, and hear the first talk. In the evening we take the training rules, the precepts, and noble silence begins.
+You arrive in the afternoon, settle into your tent, meet the team and hear the first talk. In the evening everyone takes the precepts, the simple training rules, and noble silence begins.
 
-There's a concept called entrainment. Two pendulums out of sync, left next to each other overnight, swing in sync by morning. We entrain to where we are. Fifteen minutes at Bank station, you take its rhythm. A few days by the river under old oaks, you take that rhythm instead.
+There is a lovely idea called entrainment. Two pendulums swinging out of time, left side by side overnight, will be swinging together by morning. We take on the rhythm of where we are. A quarter of an hour in a busy London station and you take on its rush. A few days by the river under old oaks, and you take on theirs.
 
-So on day one, don't rush. The mind will be racing, wanting to *get* something from this retreat. See if you can just relax into it.
+So on the first day, don't hurry. The mind will be racing, wanting to *get* something from the week. See if you can simply arrive.
 
 ## Days 2 and 3: The hard part
 
-I won't lie to you. For most people these are the difficult days.
+For most people, these are the difficult days.
 
-The body isn't used to sitting. The knees speak, the back speaks. The mind isn't used to having nothing to chew on, so it pulls everything out of its pockets: old conversations, plans, songs, food. You will drift away a thousand times in one sitting. It doesn't matter how many. Every time you notice, that noticing *is* the practice.
+The body isn't used to sitting; the knees speak, the back speaks. The mind isn't used to having nothing to chew on, so it pulls everything out of its pockets: old conversations, plans, songs, food. You may drift away a hundred times in one sitting. It doesn't matter how many. Every time you notice, that noticing *is* the practice.
 
-Two common troubles:
+Two common troubles, and what helps:
 
-- **Too sleepy.** We call it sloth and torpor. Do longer, more energetic walking meditation. Open your eyes. In Thailand, I used to splash cold water on my face and neck after lunch. It helps.
-- **Too restless.** The mind goes *doo-doo-doo-doo*. Note it: *restless, restless*. Then back to rising and falling.
+- **Sleepiness.** Do longer, brisker walking meditation, keep your eyes open, and splash cold water on your face after lunch.
+- **Restlessness.** Note it, *restless, restless*, and come back to rising and falling.
 
-Be kind with yourself. Listen to the tone you use when you catch yourself drifting. Is it *"Huh, thinking again, got you"*? Or is it kind? Discipline isn't beating yourself. It's doing it when you remember.
+Listen to the tone you use when you catch yourself drifting. Is it "Thinking again, got you"? Or is it kind? Discipline isn't beating yourself up. It is simply coming back when you remember.
+
+This is also when the small comforts matter: a hot drink in the afternoon, the sauna by the river in the evening break, a massage with one of our therapists if your shoulders need it.
 
 ## Day 4: Settling
 
-Usually around here, the body adapts and the mind stops fighting. You start to see that the thoughts are not you. They're a random box, out of control, trying to get your attention. You can step back and watch.
+Around now the body adapts and the mind stops fighting. You start to see that thoughts are not you. They come and go on their own, asking for attention, and you can step back and watch.
 
-This is where concentration begins. The 45 minutes goes by, boom, and you didn't notice.
+This is where concentration begins. A 45-minute sitting passes and you hardly noticed.
 
 ## Days 5 and 6: Going deeper
 
-Energy rises. Many people wake before the bell. On one long retreat my energy was so high, I decided: whenever I wake up, I'll get dressed and go to the hall. So one night I woke to birds that sounded like morning, picked up my toothbrush, noticed it was still wet, went to the hall anyway, and looked at the clock. 11:30 at night.
+Energy rises. Many people wake before the bell. On one long retreat my energy was so high that I woke to what I thought was birdsong at dawn, picked up my toothbrush and walked to the meditation hall, only to see the clock: half past eleven at night.
 
-You don't need to do that. But you will feel the energy that comes from continuous practice.
+You don't need to go that far. But you will feel the energy that comes from continuous practice.
 
-At this stage, we add more objects to the noting: sounds, sensations, feelings of pleasant and unpleasant. Some people have their first real breakthrough to the present moment. It feels like a weight has gone from the shoulders. You don't have to be anybody.
+At this stage we add more objects to the noting: sounds, bodily sensations, pleasant and unpleasant feelings. Some people have their first real breakthrough into the present moment. It feels as if a weight has lifted from the shoulders.
 
 ## Day 7: Coming out
 
-On the last morning we talk about how to take the practice home, and then the silence ends. People are often surprised how gently they speak, how much they notice, how funny everything is.
+On the last morning we talk about taking the practice home, and then the silence ends. People are often surprised by how gently they speak, how much they notice, and how funny everything suddenly is.
 
-Take it slowly. The world will be loud. Don't make big decisions the same day.
+Take it slowly. The world will feel loud. Leave big decisions for another day.
 
 ## Things nobody tells you
 
-- **You don't need to sit cross-legged.** A cushion, a bench, a chair: all fine. Daily yoga at our retreats helps the hips and back.
-- **Emotions come up.** That's good. Note them as *sadness, sadness*, or *fear, fear*. They arise, stay a while, and pass.
-- **Comparing is pointless.** The person next to you looks perfectly still. Inside, they're probably planning lunch.
-- **It's not about getting something.** Until you're there trying to get something, it's just impossible. When the "meditator" disappears into the technique, it works by itself.
+- **You don't need to sit cross-legged.** A cushion, a bench or a chair are all fine, and morning yoga helps the hips and back.
+- **Emotions come up.** That is good. Note them, *sadness, sadness* or *fear, fear*, and watch them pass.
+- **Comparing is pointless.** The person beside you looks perfectly still. Inside, they are probably planning lunch.
+- **It isn't about getting something.** While you're trying to get something, it stays out of reach. When the effort to achieve falls away into the simple practice, it works by itself.
 
 ## Should you go?
 
-If you can sit for half an hour and you're willing to follow a schedule for a week, yes. Beginners are welcome on our retreats, and every group has people sitting for the first time.
+If you can sit for half an hour in some position and are willing to follow a schedule for a week, yes. Beginners are warmly welcome, and every group has people sitting for the first time.
 
 Read [what to bring](/articles/what-to-bring-silent-retreat.html), check [the 2027 dates](/retreats/), or ask [Ananda](/ask-ananda/) any question you have.
 
-Surrender to the schedule. Gong, bong, wonderful. Go sit.
+Then surrender to the schedule, and let the bell do the rest.

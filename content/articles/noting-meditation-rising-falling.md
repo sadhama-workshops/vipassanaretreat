@@ -28,7 +28,7 @@ As the belly rises, softly note in the mind: *rising.* As it falls: *falling.*
 
 It's not a mantra. You only say *rising* when there is rising. It must match what you actually feel. Each rising has a beginning, a middle and an end. Each falling has a beginning, a middle and an end. Try to be with the whole of it.
 
-If there's a pause between breaths, wait. Like a sniper, not moving. Then the next rising starts, and you catch it.
+If there's a pause between breaths, simply wait, still as a heron at the water's edge. Then the next rising begins, and you meet it.
 
 ## 4. When the mind wanders
 
@@ -36,7 +36,7 @@ It will. A thousand times. When you notice you've been thinking, note it: *think
 
 Then come back to *rising, falling.*
 
-Don't finish the thought first. One meditator in Thailand told me that was his big discovery: "I always thought I had to finish a thought before moving on. It's a liberation that I can just drop it." Drop it the moment you notice.
+Don't finish the thought first. A meditator once told me this was his great discovery on retreat: "I always thought I had to finish a thought before moving on. It's such a relief that I can just drop it." Drop it the moment you notice.
 
 ## 5. Note what's strongest
 
@@ -66,7 +66,7 @@ Note, know, let go. Note, know, let go.
 
 **Mixing techniques.** If you've done breath at the nose or body scanning, put it aside for now. Give this one full power.
 
-**Beating yourself up.** Listen to your tone when you catch the mind wandering. *"Huh! Got you again!"* Or kind? Discipline is just doing it when you remember.
+**Being hard on yourself.** Listen to your tone when you catch the mind wandering. Is it "caught you again"? Or is it kind? Discipline is simply coming back when you remember.
 
 ## How long?
 
