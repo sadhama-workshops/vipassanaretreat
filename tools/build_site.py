@@ -487,4 +487,9 @@ if __name__ == '__main__':
         shutil.copy(SRC / f, OUT / 'assets' / f)
     arts = load_articles()
     build_home(arts); build_retreats(); build_testimonials(); build_gallery(); build_teacher(); build_articles(arts); build_ananda(); build_library(); build_seo(arts)
+    # Cloudflare Pages serves /page for /page.html (308): use the clean form in absolute URLs (canonical, og, JSON-LD, sitemap)
+    clean = re.compile(r'(https://vipassanaretreat\.com/[^"\'<>\s]*?)\.html')
+    for f in list(OUT.rglob('*.html')) + [OUT / 'sitemap.xml']:
+        t = f.read_text(encoding='utf-8'); n = clean.sub(r'\1', t)
+        if n != t: f.write_text(n, encoding='utf-8')
     print('built', len(arts), 'articles')
