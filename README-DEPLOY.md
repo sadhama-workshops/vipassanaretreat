@@ -15,4 +15,7 @@ Every "Book" button uses your WeTravel embed (uid 202227, trip uuid 68342383) wi
 assets/ananda-data.json holds 49 curated answers in Dmitry's voice (source: content/ananda_qa.py). No AI key needed. To upgrade to a live AI later, the same answers can become its knowledge base.
 
 ## Library
-Sujato translations (CC0, SuttaCentral bilara-data). library/<book>/*.json for the reader; downloads/*.epub and *.txt. "Listen" uses the browser's built-in speech voices.
+Sujato translations (CC0, SuttaCentral bilara-data). library/<book>/*.json for the reader; downloads/*.epub and *.txt. "Listen" uses Piper neural voices running in the browser (assets/tts-worker.js + assets/tts/: onnxruntime-web MIT, piper_phonemize/espeak-ng GPL-3, source github.com/rhasspy/piper-phonemize). Voice models load from Hugging Face rhasspy/piper-voices and are cached. Plays through an <audio> element, so it continues with the screen off; Media Session gives lock-screen controls; position saved in localStorage. Device voices remain as a fallback.
+
+## Meditation timer
+timer.html + assets/timer.js. Gong segments in assets/gong/ (made by tools/make_gong.py, MP3 24 kHz mono 48 kbps CBR) are joined in the browser into one continuous track, so it plays with the screen locked. Add guided recordings to GUIDED in tools/build_site.py (encode with the same settings; set dur = frames x 576 / 24000).

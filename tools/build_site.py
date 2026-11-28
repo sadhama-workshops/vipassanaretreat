@@ -15,7 +15,7 @@ PROFILE = 'https://www.wetravel.com/users/sadhama'
 # Brevo subscription form link (Brevo > Contacts > Forms > your form > Share > link). Empty = sign-up hidden.
 BREVO_FORM_URL = 'https://3cda042e.sibforms.com/serve/MUIFAFoC-7B41FIhIknUzWi_EUL8s3z2sYQtNM_B_DoOpqzE-NmmmIELIeGLVuX0svfNNv3IqSGmLw_usAlpmUi1TFNDGW-NdusISRrS0lIUueimXwtAMefntX5Ws7QGxRKr2xcBnGlteih456aRNd4Vgfo1QSX6BYnDFNl0jzzkavaqBGnZ071pFqX61oRiUc4U4OYOFQdzvQm3'
 DATES = [('2027-05-31', '2027-06-06', '31 May – 6 June'), ('2027-07-26', '2027-08-01', '26 July – 1 August'), ('2027-08-30', '2027-09-05', '30 August – 5 September')]
-NAV = [('retreats.html', 'Retreats & booking'), ('testimonials.html', 'Reviews'), ('gallery.html', 'Gallery'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('teacher.html', 'Teacher')]
+NAV = [('retreats.html', 'Retreats & booking'), ('testimonials.html', 'Reviews'), ('gallery.html', 'Gallery'), ('articles.html', 'Articles'), ('ask-ananda.html', 'Ask Ananda'), ('library.html', 'Dhamma library'), ('timer.html', 'Meditation timer'), ('teacher.html', 'Teacher')]
 
 def book_btn(label='Book your place', cls='btn book', extra='', uuid=None):
     u = uuid or WT['vip']
@@ -72,7 +72,7 @@ def page(path, title, desc, body, active='', image='oak-marquee-dawn', jsonld=No
 <footer><div class="wrap"><div class="cols">
 <div><img src="{up}assets/sadhama-logo-white-lg.png" width="160" height="99" alt="Sadhama" style="margin-bottom:14px"><p>Silent Insight Vipassana retreats in nature, on the River Thames at Hardwick Estate, Oxfordshire. Run by <a href="https://sadhama.com" rel="noopener">Sadhama</a>.</p></div>
 <div><h4>Retreats</h4><ul><li><a href="{up}retreats.html">2027 dates &amp; booking</a></li><li><a href="{up}articles/what-is-a-vipassana-retreat.html">What is a vipassana retreat?</a></li><li><a href="{up}articles/silent-retreat-near-london.html">Silent retreat near London</a></li></ul></div>
-<div><h4>Learn</h4><ul><li><a href="{up}ask-ananda.html">Ask Ananda</a></li><li><a href="{up}library.html">Dhamma library</a></li><li><a href="{up}articles.html">All articles</a></li></ul></div>
+<div><h4>Learn</h4><ul><li><a href="{up}ask-ananda.html">Ask Ananda</a></li><li><a href="{up}library.html">Dhamma library</a></li><li><a href="{up}timer.html">Meditation timer</a></li><li><a href="{up}articles.html">All articles</a></li></ul></div>
 <div><h4>Contact</h4><ul><li>info@sadhama.com</li><li>Hardwick Estate, Whitchurch-on-Thames, RG8 7RA</li><li><a href="https://www.instagram.com/sadhamayoga/" rel="noopener">Instagram</a></li></ul></div>
 </div><p class="small" style="margin-top:28px;opacity:.75">Sutta translations by Bhikkhu Sujato, SuttaCentral, dedicated to the public domain (CC0). Photographs © Sadhama.</p></div></footer>
 {book_btn('Book a retreat', 'btn book float-book')}
@@ -463,7 +463,7 @@ def build_library():
     body = f'''<section class="page-hero">{img("lily-pond-mist", ALT["lily-pond-mist"], eager=True)}<div class="wrap"><h1>The Dhamma library</h1><p>Eight collections of the Buddha's discourses. Read online, download, or listen aloud.</p></div></section>
 <section class="band"><div class="wrap"><p class="lede" style="margin-bottom:28px">These are the original teachings from the Pāḷi Canon that Dmitry draws on in his Dhamma talks, in Bhikkhu Sujato's clear modern translation, which he dedicated to the public domain. Free for everyone, forever.</p>
 <div class="grid">{cards}</div>
-<p class="muted small" style="margin-top:24px">Translations by Bhikkhu Sujato, from <a href="https://suttacentral.net" rel="noopener">SuttaCentral</a>, CC0 public domain. "Listen" uses your device's built-in voices.</p></div></section>'''
+<p class="muted small" style="margin-top:24px">Translations by Bhikkhu Sujato, from <a href="https://suttacentral.net" rel="noopener">SuttaCentral</a>, CC0 public domain. "Listen" reads aloud in natural voices that run in your browser and keep going with your phone locked. Your place is remembered. Want to sit, not read? Try the <a href="timer.html">meditation timer</a>.</p></div></section>'''
     head = '<style>.book-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.book-actions .btn{min-height:44px;padding:0 16px;font-size:15px}</style>'
     ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Dhamma library", "hasPart": [{"@type": "Book", "name": f"{c['title']} ({c['en']})", "translator": {"@type": "Person", "name": "Bhikkhu Sujato"}, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "url": f"{DOMAIN}/read.html#{c['slug']}"} for c in cat]}]
     page('library.html', 'Free Dhamma Library: Read & Listen to the Suttas | Vipassana Retreat UK', 'Read, download or listen to eight collections of the Buddha\'s discourses: Dhammapada, Saṁyutta and Aṅguttara Nikāya, Sutta Nipāta, Udāna, Itivuttaka, Thera- and Therīgāthā.', body, 'library.html', 'lily-pond-mist', ld, extra_head=head)
@@ -478,7 +478,8 @@ def build_library():
 .text h1{font-size:1.5em;margin:.3em 0 .6em}.text h2{font-size:1.25em}.text .verse-line{display:block}.text blockquote{margin:1em 0 1em 1em}.text section{scroll-margin-top:130px}
 .text .reading{background:color-mix(in srgb,var(--sun) 18%,transparent);border-radius:6px;box-shadow:0 0 0 6px color-mix(in srgb,var(--sun) 18%,transparent)}
 .text p,.text li,.text h1,.text h2{cursor:default}.listening .text p,.listening .text h1{cursor:pointer}
-.status{font:14px var(--sans);color:var(--soft)}.dl{font:14px var(--sans)}
+.status{font:14px var(--sans);color:var(--soft)}.dl{font:14px var(--sans)}.tools select#voice{max-width:280px}
+.resume{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--mist);border-radius:14px;padding:14px 18px;margin:0 0 18px;font:15px var(--sans)}
 @media(max-width:900px){.reader{grid-template-columns:minmax(0,1fr)}.toc{position:static;max-height:300px}}</style>'''
     rbody = '''<section class="band" style="padding-top:28px"><div class="wrap">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/library/">Library</a> › <span id="crumb">Reader</span></nav>
@@ -489,22 +490,97 @@ def build_library():
 <select id="voice" aria-label="Voice"></select><button id="sample" type="button" aria-label="Hear this voice">Try voice</button><button id="smaller" type="button" aria-label="Smaller text">A−</button><button id="bigger" type="button" aria-label="Larger text">A+</button>
 <span class="dl" id="dl"></span><span class="status" id="status"></span></div>
 <p class="small muted" id="tts-note" style="margin:6px 0 14px"></p>
+<div class="resume" id="resume" hidden><span>Welcome back. Carry on from <strong data-where></strong>?</span><button type="button" class="btn">▶ Continue listening</button></div>
 <article class="text" id="text"><p class="muted">Loading…</p></article>
-<p class="muted small" style="margin-top:32px">Translated by Bhikkhu Sujato (SuttaCentral), public domain.</p></div></div></div></section>'''
+<p class="muted small" style="margin-top:32px">Translated by Bhikkhu Sujato (SuttaCentral), public domain. Natural voices: Piper (Rhasspy) running in your browser.</p></div></div></div></section>
+<audio id="player" playsinline preload="auto"></audio>
+<div class="mini" id="mini" hidden role="region" aria-label="Now playing"><div class="mini-info"><strong id="mini-title">Dhamma library</strong><span id="mini-status"></span></div>
+<div class="mini-btns"><button id="mini-prev" type="button" aria-label="Previous text">⏮</button><button id="mini-play" class="mini-main" type="button" aria-label="Pause">❚❚</button><button id="mini-next" type="button" aria-label="Next text">⏭</button><button id="mini-stop" type="button" aria-label="Stop">■</button></div></div>'''
     page('read.html', 'Read the Suttas Online | Vipassana Retreat UK', 'Read and listen to the Buddha\'s discourses online in Bhikkhu Sujato\'s public-domain translation.', rbody, 'library.html', 'lily-pond-mist', scripts='<script src="assets/reader.js"></script>', extra_head=reader_head)
 
+# ---------- meditation timer ----------
+GUIDED = []   # e.g. [{"id": "metta-hardwick", "title": "Loving-kindness with Dmitry", "file": "assets/guided/metta-hardwick.mp3", "dur": 1534.272}]
+TIMER_HEAD = '''<style>
+.mt{max-width:760px;margin:0 auto}.mt-card{scroll-margin-top:90px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,36px);box-shadow:0 10px 30px rgba(20,40,30,.06)}
+.mt-row{margin:0 0 22px}.mt-row>label,.mt-row>.mt-lbl{display:block;font:600 14px var(--sans);letter-spacing:.02em;margin:0 0 10px;color:var(--soft)}
+.mt-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mt-chip{min-height:44px;min-width:56px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 15px var(--sans);cursor:pointer}
+.mt-chip[aria-pressed=true]{background:#1f3a2e;border-color:#1f3a2e;color:#fff}
+.mt-mode .mt-chip{flex:1;min-height:54px;font-size:16px}
+#mt-custom{width:90px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:15px var(--sans);padding:0 14px}
+.mt-go{width:100%;min-height:58px;font-size:18px;margin-top:6px}.mt-summary{text-align:center;color:var(--soft);font:15px var(--sans);margin:12px 0 0}
+.mt-live{text-align:center}.mt-ring{--p:0;width:min(300px,78vw);aspect-ratio:1;margin:8px auto 22px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(closest-side,var(--paper) 86%,transparent 87%),conic-gradient(var(--sun) calc(var(--p)*1%),var(--mist) 0)}
+.mt-clock{font:600 clamp(44px,12vw,68px)/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:-.02em}.mt-phase{font:15px var(--sans);color:var(--soft);margin-top:8px}
+.mt-live .mt-chips{justify-content:center}.mt-done{background:var(--mist);border-radius:16px;padding:16px 20px;margin:0 0 22px;font-size:18px}
+.mt-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 0}.mt-stats div{background:var(--mist);border-radius:14px;padding:12px;text-align:center}
+.mt-stats strong{display:block;font:600 24px var(--sans)}.mt-stats span{font:13px var(--sans);color:var(--soft)}
+.mt select{min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:15px var(--sans);padding:0 12px;max-width:100%}
+@media(max-width:560px){.mt-stats{grid-template-columns:repeat(2,1fr)}}</style>'''
+
+def build_timer():
+    def chips(attr, vals, fmt):
+        return ''.join(f'<button type="button" class="mt-chip" data-{attr}="{v}" aria-pressed="false">{fmt(v)}</button>' for v in vals)
+    guided_pick = ('<label for="mt-guided">Recording</label><select id="mt-guided"></select>' if GUIDED
+                   else '<p class="small muted" style="margin:0">Dmitry’s recording is being added. Choose silent sitting for now.</p>')
+    body = (
+'<section class="band" style="padding-top:clamp(28px,4vw,48px)"><div class="wrap mt">'
+'<h1>Meditation timer with a Burmese gong</h1>'
+'<p class="lede">Sit at home the way we sit at Hardwick: one deep gong to begin, quiet in between, three gongs to close. Free, no app, nothing to sign up for.</p>'
+'<div class="mt-card">'
+'<div class="mt-done" id="mt-done" hidden><p id="mt-done-msg" style="margin:0"></p></div>'
+'<div id="mt-form">'
+'<div class="mt-row mt-mode"><div class="mt-chips"><button type="button" class="mt-chip" data-mode="silent" aria-pressed="true">Silent sitting</button><button type="button" class="mt-chip" data-mode="guided" aria-pressed="false">Guided loving-kindness</button></div></div>'
+'<div class="mt-silent">'
+f'<div class="mt-row"><span class="mt-lbl">How long</span><div class="mt-chips">{chips("min", [5,10,15,20,30,45,60], lambda v: f"{v} min")}<label class="sr" for="mt-custom">Custom minutes</label><input id="mt-custom" type="number" min="1" max="240" inputmode="numeric" placeholder="Other"></div></div>'
+f'<div class="mt-row"><span class="mt-lbl">Soft gong along the way</span><div class="mt-chips">{chips("interval", [0,5,10,15], lambda v: "None" if not v else f"Every {v} min")}</div></div>'
+f'<div class="mt-row"><span class="mt-lbl">To begin</span><div class="mt-chips">{chips("start", [1,3], lambda v: "One gong" if v == 1 else "Three gongs")}</div></div>'
+'</div>'
+'<div class="mt-guided" hidden>'
+'<div class="mt-row"><p style="margin:0 0 12px">The evening mettā we sit together on retreat, recorded at Hardwick as the sun goes down. Dmitry guides you to place the warmth of the sun in your heart and shine it out: to yourself, to the people you love, and to all beings.</p>'
+f'{guided_pick}</div>'
+f'<div class="mt-row"><span class="mt-lbl">Then stay in silence</span><div class="mt-chips">{chips("after", [0,5,10,15], lambda v: "No" if not v else f"{v} min")}</div></div>'
+'</div>'
+f'<div class="mt-row"><span class="mt-lbl">Settle in first</span><div class="mt-chips">{chips("prep", [0,10,30,60], lambda v: "Start now" if not v else (f"{v} s" if v < 60 else "1 min"))}</div></div>'
+'<button class="btn book mt-go" id="mt-go" type="button">Begin</button>'
+'<p class="mt-summary" id="mt-summary"></p>'
+'<p class="small muted" style="text-align:center;margin:10px 0 0"><button type="button" id="mt-sample" class="mt-chip" style="min-height:36px">Hear the gong</button></p>'
+'</div>'
+'<div class="mt-live" id="mt-live" hidden><div class="mt-ring" id="mt-ring"><div><div class="mt-clock" id="mt-clock">0:00</div><div class="mt-phase" id="mt-phase">Settling in</div></div></div>'
+'<div class="mt-chips"><button type="button" class="mt-chip" id="mt-pause">❚❚ Pause</button><button type="button" class="mt-chip" id="mt-end">End</button></div>'
+'<p class="small muted" style="margin:18px 0 0">You can lock your phone. The gongs will still ring, and the lock screen lets you pause or end.</p></div>'
+'<div class="mt-stats" id="mt-stats" hidden></div>'
+'</div>'
+'<audio id="mt-audio" playsinline preload="auto"></audio>'
+'<div class="prose" style="margin-top:40px">'
+'<h2>How to sit with the timer</h2>'
+'<p>Find a seat that keeps your back upright without strain. A cushion, a bench or a chair are all fine; comfort helps you stay. Close your eyes and let the first gong ring all the way out.</p>'
+'<p>Then rest your attention on the rising and falling of the belly. When the mind wanders, and it will, simply note it: “thinking, thinking”. Then come back. No fighting, no judging. That coming back is the practice.</p>'
+'<p>Begin with fifteen or twenty minutes. Sitting every day does more than one heroic hour once a week. When the closing gongs sound, stay a moment longer. Notice how you feel before you get up.</p>'
+'<p>New to the method? Read <a href="articles/noting-meditation-rising-falling.html">noting meditation: rising and falling</a>, or try <a href="articles/walking-meditation-how-to.html">walking meditation</a> between sits. And when you are ready to go deeper, come and <a href="retreats.html">sit with us for seven days by the Thames</a>.</p>'
+'<p class="small muted">Your sits are counted on this device only; nothing is sent anywhere. The gong is a deep, slow Burmese-style gong, like those that call meditators to the hall in Myanmar.</p>'
+'</div></div></section>'
+'<div class="mini" id="mini" hidden role="region" aria-label="Meditation in progress"><div class="mini-info"><strong id="mini-title">Meditation</strong><span id="mini-status"></span></div>'
+'<div class="mini-btns"><button id="mini-play" class="mini-main" type="button" aria-label="Pause">❚❚</button><button id="mini-stop" type="button" aria-label="End">■</button></div></div>')
+    ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": "Meditation timer with Burmese gong", "url": DOMAIN + "/timer.html",
+           "applicationCategory": "HealthApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+           "description": "Free online meditation timer with a deep Burmese gong, interval gongs, silent or guided loving-kindness sessions. Works with the screen off.", "publisher": ORG}]
+    page('timer.html', 'Free Meditation Timer with Burmese Gong | Vipassana Retreat UK',
+         'A free online meditation timer with a deep Burmese gong: choose your time, add soft interval gongs, or sit with a guided loving-kindness meditation. Works with your phone locked.',
+         body, 'timer.html', 'fb-golden-sunrise', ld, scripts=f'<script>window.MT_GUIDED={json.dumps(GUIDED)};</script><script src="assets/timer.js"></script>', extra_head=TIMER_HEAD)
+
 def build_seo(arts):
-    urls = ['', 'retreats.html', 'testimonials.html', 'gallery.html', 'articles.html', 'ask-ananda.html', 'library.html', 'teacher.html', 'read.html'] + [f'articles/{a["slug"]}.html' for a in arts]
+    urls = ['', 'retreats.html', 'testimonials.html', 'gallery.html', 'articles.html', 'ask-ananda.html', 'library.html', 'teacher.html', 'read.html', 'timer.html'] + [f'articles/{a["slug"]}.html' for a in arts]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{DOMAIN}/{u}</loc><lastmod>2026-11-27</lastmod></url>\n' for u in urls) + '</urlset>\n'
     (OUT / 'sitemap.xml').write_text(sm)
     (OUT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n')
 
 if __name__ == '__main__':
     (OUT / 'assets').mkdir(parents=True, exist_ok=True)
-    for f in ('site.css', 'site.js', 'ananda.js', 'reader.js'):
+    for f in ('site.css', 'site.js', 'ananda.js', 'reader.js', 'tts-worker.js', 'timer.js'):
         shutil.copy(SRC / f, OUT / 'assets' / f)
     arts = load_articles()
-    build_home(arts); build_retreats(); build_testimonials(); build_gallery(); build_teacher(); build_articles(arts); build_ananda(); build_library(); build_seo(arts)
+    build_home(arts); build_retreats(); build_testimonials(); build_gallery(); build_teacher(); build_articles(arts); build_ananda(); build_library(); build_timer(); build_seo(arts)
     # Cloudflare Pages serves /page for /page.html (308): use the clean form in absolute URLs (canonical, og, JSON-LD, sitemap)
     clean = re.compile(r'(https://vipassanaretreat\.com/[^"\'<>\s]*?)\.html')
     for f in list(OUT.rglob('*.html')) + [OUT / 'sitemap.xml']:

@@ -58,6 +58,6 @@ Vipassana without kindness can be cold. Kindness without wisdom can be sentiment
 
 The trained mind, the disciplined mind, is the happy mind. And a happy mind naturally wants others to be happy too.
 
-We practise mettā every evening on our [silent retreats](/retreats/). You can also read more of the [Sutta Nipāta](/library/read.html#sutta-nipata-vagga1) in our library, or listen to it read aloud.
+We practise mettā every evening on our [silent retreats](/retreats/). You can also read more of the [Sutta Nipāta](/library/read.html#sutta-nipata-vagga1) in our library, or listen to it read aloud. And when you want to sit at home, our free [meditation timer](/timer.html) rings the same deep gong we use at Hardwick.
 
 May you be happy and well.

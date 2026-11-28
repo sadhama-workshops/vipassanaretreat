@@ -1,0 +1,3 @@
+onnxruntime-web 1.18.0 (MIT) - https://github.com/microsoft/onnxruntime
+piper_phonemize wasm build from @diffusionstudio/piper-wasm 1.0.0, includes espeak-ng (GPL-3.0) - source: https://github.com/rhasspy/piper-phonemize and https://github.com/espeak-ng/espeak-ng
+Voices: Piper voices (rhasspy/piper-voices on Hugging Face), downloaded by the browser at runtime; see each voice MODEL_CARD.
